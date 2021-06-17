@@ -96,7 +96,7 @@ if ($txtusuario === $usuario_correcto && $txtpassword=== $palabra_secreta_correc
     //echo '<script language="javascript">alert("Usuario y Clave Incorrecto");</script>';
                 //$mensaje ="Las credenciales ingresadas no coinciden con los datos ya existentes";
 }
-            $result = mysqli_query($con, $sql);
+          /*  $result = mysqli_query($con, $sql);
             if ($result == false) {
                 echo  "Ocurrió un error en la consulta" ;
 
@@ -119,8 +119,9 @@ if ($txtusuario === $usuario_correcto && $txtpassword=== $palabra_secreta_correc
 
     
                 }
-                   
+           	*/        
         }
+	
     ?>
     <div> <?php  echo  $mensaje;?>   </div>
   
