@@ -72,8 +72,6 @@
     <?php 
      session_start();
      unset(  $_SESSION['usuario'] );
-     require('controlador/coneccion.php');
-
      $mensaje=" ";
 
        if( isset($_POST["txtusuario"]) &&  isset($_POST["txtpassword"])   )
@@ -90,7 +88,7 @@ if ($txtusuario === $usuario_correcto && $txtpassword=== $palabra_secreta_correc
     
     $_SESSION["usuario"] = $usuario;
     
-    header("Location: main.php");
+    header("Location: coneccion.php");
 } else {
     
     //echo '<script language="javascript">alert("Usuario y Clave Incorrecto");</script>';
