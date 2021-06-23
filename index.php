@@ -1,75 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-	<meta charset="UTF-8">
-	<title>Login</title>
-	
-	<link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.8.8/themes/default/easyui.css">
-	<link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.8.8/themes/icon.css">
-	<link rel="stylesheet" type="text/css" href="css/proyecto.css">
-	<script type="text/javascript" src="js/jquery-easyui-1.8.8/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery-easyui-1.8.8/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="js/jquery-easyui-1.8.8/locale/easyui-lang-es.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en">
+  <head>
+  	<<title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="icon" type="image/png" href="imagenes/icons/favicon.ico"/>
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-</head>
-<body >
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
 
-
-     <div class="limiter">
-		<div class="container-login100" style="background-image: url('imagenes/paisaje.jpg');" >
-			<div class="wrap-login100">
-				<form class="login100-form validate-form"id="ff" method="post"
-          onsubmit="return submitForm();">
-					<span class="login100-form-logo">
-						<i ><img src="imagenes/descarga.png"   height="60px"  > </img></i>
-					</span>
-
-					<span class="login100-form-title p-b-34 p-t-27">
-                    Ingreso al Sistema
-					</span>
-
-					<div class="wrap-input100 validate-input" data-validate = "Ingrese el usuario">
-						<input class="input100" required="true" type="text" name="txtusuario" placeholder="Usuario">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Ingrese la contraseña">
-						<input class="input100"required="true" type="password" name="txtpassword" placeholder="Contraseña">
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
-
-					<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Recuerda mis datos
-						</label>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit" form="ff" color=purple value="Continue" style="width:80px" >
-							Acceder
-						</button>
-					</div>
-
-				</form>
+	</head>
+	<body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
+	<section class="ftco-section">
+	<form class="login100-form validate-form"id="ff" method="post" onsubmit="return submitForm();">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Login #10</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<h3 class="mb-4 text-center">Ingreso al Sistema</h3>
+		      	<form action="#" class="signin-form" id="ff" method="post" onsubmit="return submitForm();">
+		      		<div class="form-group">
+		      			<input type="text" class="form-control"name="txtusuario" placeholder="Usuario" required>
+		      		</div>
+	            <div class="form-group">
+	              <input id="password-field" type="password" class="form-control"name="txtpassword" placeholder="Contraseña" required>
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" class="form-control btn btn-primary submit px-3">Acceder</button>
+	            </div>
+	            <div class="form-group d-md-flex">
+	            	<div class="w-50">
+		            	<label class="checkbox-wrap checkbox-primary">Recuerda mis datos
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+									</label>
+								</div>
+								
+	            </div>
+	          </form>
+	          </form>
+		      </div>
+				</div>
 			</div>
 		</div>
-	</div>
-	
-    <?php 
+	</section>
+	<?php 
      session_start();
      unset(  $_SESSION['usuario'] );
      $mensaje=" ";
@@ -130,16 +113,10 @@ if ($txtusuario === $usuario_correcto && $txtpassword=== $palabra_secreta_correc
         }
      
     </script>
-	<div id="dropDownSelect1"></div>
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="vendor/select2/select2.min.js"></script>
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-	<script src="js/main.js"></script>
-</body>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
 
+	</body>
 </html>
