@@ -18,7 +18,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Login #10</h2>
+					<h2 class="heading-section">UTI</h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -53,26 +53,35 @@
 		</div>
 	</section>
 	<?php 
-     session_start();
-     unset(  $_SESSION['usuario'] );
-     $mensaje=" ";
-
-       if( isset($_POST["txtusuario"]) &&  isset($_POST["txtpassword"])   )
-        {
-            $txtusuario =   $_POST['txtusuario'];
-            $txtpassword =   $_POST['txtpassword']; 
-            $sql = "SELECT * FROM  login where
-             usuario='$txtusuario' and contraseña='$txtpassword' ";
-$usuario_correcto = "123";
-$palabra_secreta_correcta = "123";
-if ($txtusuario === $usuario_correcto && $txtpassword=== $palabra_secreta_correcta) {
-   
-    session_start();
-    
-    $_SESSION["usuario"] = $usuario;
-    
-    header("Location: coneccion.php");
-} else {
+       session_start();
+	   unset(  $_SESSION['usuario'] );
+	   $mensaje=" ";
+  
+		 if( isset($_POST["txtusuario"]) &&  isset($_POST["txtpassword"])   )
+		  {
+			  $txtusuario =   $_POST['txtusuario'];
+			  $txtpassword =   $_POST['txtpassword']; 
+			 
+			  $contraseña = $txtpassword ;
+			  $usuario = $txtusuario;
+			  $nombreBaseDeDatos = "Proyectos";
+			  # Puede ser 127.0.0.1 o el nombre de tu equipo; o la IP de un servidor remoto
+			  $rutaServidor = "JOHN";
+			  try {
+				  $base_de_datos = new PDO("sqlsrv:server=$rutaServidor;database=$nombreBaseDeDatos", $usuario, $contraseña);
+				  $base_de_datos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				  echo "Coneccion correcta con la base de datos: ";
+				  header("Location: coneccion.php");
+			  } catch (Exception $e) {
+				  echo "Ocurrió un error con la base de datos: " . $e->getMessage();
+			  }
+			  
+			  
+				  
+				  
+			  
+  
+		  } else {
     
     //echo '<script language="javascript">alert("Usuario y Clave Incorrecto");</script>';
                 //$mensaje ="Las credenciales ingresadas no coinciden con los datos ya existentes";
@@ -101,7 +110,7 @@ if ($txtusuario === $usuario_correcto && $txtpassword=== $palabra_secreta_correc
     
                 }
            	*/        
-        }
+        
 	
     ?>
     <div> <?php  echo  $mensaje;?>   </div>
