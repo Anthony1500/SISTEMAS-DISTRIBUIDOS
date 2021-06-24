@@ -73,7 +73,8 @@
 				  echo "Coneccion correcta con la base de datos: ";
 				  header("Location: coneccion.php");
 			  } catch (Exception $e) {
-				  echo "Ocurrió un error con la base de datos: " . $e->getMessage();
+				echo '<script language="javascript">alert("Usuario y Contraseña Incorrecto");</script>';
+				  
 			  }
 			  
 			  
