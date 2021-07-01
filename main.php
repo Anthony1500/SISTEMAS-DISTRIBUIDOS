@@ -22,7 +22,7 @@
           
  
         <div data-options="region:'north'" style="height:60px"> 
-        <img src="imagenes/descargaaaaa.jpg"   height="50px"  > </img>      
+        <img src="imagenes/uti-logo.jpg"   height="50px"  > </img>      
         <a class="boton_personalizado" href="index.php"> Salir </a>
          <div class="titulousuario">
 		 <a style="color:blue";>

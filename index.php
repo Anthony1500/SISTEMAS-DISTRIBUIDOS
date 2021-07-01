@@ -70,11 +70,10 @@
 			  try {
 				  $base_de_datos = new PDO("sqlsrv:server=$rutaServidor;", $usuario, $contraseña);
 				  $base_de_datos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				  echo '<script language="javascript">alert("Usuario Existe");</script>';
 				  header("location: main.php") ;
 				  
 			  } catch (Exception $e) {
-				echo '<script language="javascript">alert("Usuario no Existe");</script>';
+				echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>';
 				  
 			  }
 			  
