@@ -64,16 +64,17 @@
 			 
 			  $contraseña = $txtpassword ;
 			  $usuario = $txtusuario;
-			  $nombreBaseDeDatos = "Proyectos";
+			  
 			  # Puede ser 127.0.0.1 o el nombre de tu equipo; o la IP de un servidor remoto
 			  $rutaServidor = "JOHN";
 			  try {
-				  $base_de_datos = new PDO("sqlsrv:server=$rutaServidor;database=$nombreBaseDeDatos", $usuario, $contraseña);
+				  $base_de_datos = new PDO("sqlsrv:server=$rutaServidor;", $usuario, $contraseña);
 				  $base_de_datos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				  echo "Coneccion correcta con la base de datos: ";
-				  header("Location: coneccion.php");
+				  echo '<script language="javascript">alert("Usuario Existe");</script>';
+				  header("location: main.php") ;
+				  
 			  } catch (Exception $e) {
-				echo '<script language="javascript">alert("Usuario y Contraseña Incorrecto");</script>';
+				echo '<script language="javascript">alert("Usuario no Existe");</script>';
 				  
 			  }
 			  
