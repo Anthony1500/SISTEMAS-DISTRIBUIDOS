@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	
-	<title>Catastros</title>
+	<title>Manu</title>
 	
 	<link rel="icon" type="image/png" href="imagenes/icons/img.png"/>
     <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.8.8/themes/bootstrap/easyui.css">
@@ -22,12 +22,13 @@
           
  
         <div data-options="region:'north'" style="height:60px"> 
-        <img src="imagenes/descargaaaaa.jpg"   height="50px"  > </img>
+        <img src="imagenes/descargaaaaa.jpg"   height="50px"  > </img>      
+        <a class="boton_personalizado" href="index.php"> Salir </a>
          <div class="titulousuario">
 		 <a style="color:blue";>
 
-
-			<a  href="index.php"> Salir </a>
+         
+          </a>
          </div> 
 
         </div>
