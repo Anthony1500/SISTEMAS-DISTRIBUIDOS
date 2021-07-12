@@ -28,9 +28,8 @@
 		      	<form action="#" class="signin-form" id="ff" method="post" onsubmit="return submitForm();">
 		      		<div class="form-group">
 		      			<input type="text" class="form-control"name="txtusuario" placeholder="Usuario" required>
-		      		</div>
-	            <div class="form-group">
-	              <input id="password-field" type="password" class="form-control"name="txtpassword" placeholder="Contraseña" required>
+						  <div class="form-group">
+	             
 	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 	            </div>
 	            <div class="form-group">
@@ -53,6 +52,21 @@
 		</div>
 	</section>
 	<?php 
+	
+
+	$serverName = "ANTHONY\ANTHONY";
+	$db="Proyectos";
+	
+	$connectionInfo = array( "Database"=>$db);
+	$conn = sqlsrv_connect( $serverName, $connectionInfo);
+	
+	if( $conn ) {
+		 echo "Conexión establecida.<br/>";
+	}else{
+		 echo "Conexión no se pudo establecer.<br />";
+		 die( print_r( sqlsrv_errors(), true));
+	}
+	
        session_start();
 	   unset(  $_SESSION['usuario'] );
 	   $mensaje=" ";
@@ -60,22 +74,20 @@
 		 if( isset($_POST["txtusuario"]) &&  isset($_POST["txtpassword"])   )
 		  {
 			  $txtusuario =   $_POST['txtusuario'];
-			  $txtpassword =   $_POST['txtpassword']; 
-			 
-			  $contraseña = $txtpassword ;
-			  $usuario = $txtusuario;
+			  
 			  
 			  # Puede ser 127.0.0.1 o el nombre de tu equipo; o la IP de un servidor remoto
-			  $rutaServidor = "JOHN";
-			  try {
-				  $base_de_datos = new PDO("sqlsrv:server=$rutaServidor;", $usuario, $contraseña);
-				  $base_de_datos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				  header("location: main.php") ;
-				  
-			  } catch (Exception $e) {
-				echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>';
-				  
+			  $rutaServidor = "ANTHONY\ANTHONY";
+			 
+			  $sql = "execute sp_helplogins @LoginNamePattern= '$txtusuario'";
+			  //Ejecuta la consulta
+			  $stmt = sqlsrv_query($conn,$sql);
+			  if ($stmt){
+				header("location: main.php") ;
+			  }else{
+				echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>'; 
 			  }
+			  
 			  
 			  
 				  
@@ -87,10 +99,25 @@
     //echo '<script language="javascript">alert("Usuario y Clave Incorrecto");</script>';
                 //$mensaje ="Las credenciales ingresadas no coinciden con los datos ya existentes";
 }
-          /*  $result = mysqli_query($con, $sql);
+          /* 
+		  try {
+				  $base_de_datos = new PDO("sqlsrv:server=$rutaServidor;", $usuario);
+				  $base_de_datos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				  header("location: main.php") ;
+				  
+			  } catch (Exception $e) {
+				echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>';
+				  
+			  }
+		 
+		 
+		 
+		 
+		 
+		 
+		  $result = mysqli_query($con, $sql);
             if ($result == false) {
                 echo  "Ocurrió un error en la consulta" ;
-
                exit;
             }  
             $row = mysqli_fetch_assoc($result) ;
@@ -107,7 +134,6 @@
                   header("location: main.php") ;
 				   //Libera la memoria del resultado.
     mysqli_free_result($result);
-
     
                 }
            	*/        
