@@ -52,20 +52,50 @@
 		</div>
 	</section>
 	<?php 
+
+$serverName = "DESKTOP-GI1RABS\BRYAN";
+$db="Proyectos";
+
+$connectionInfo = array( "Database"=>$db);
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+if( $conn ) {
+     echo "Conexión establecida.<br/>";
+}else{
+     echo "Conexión no se pudo establecer.<br />";
+     die( print_r( sqlsrv_errors(), true));
+}
+?>
+	
+	<?php 
+	
+	session_start();
+	unset(  $_SESSION['usuario'] );
+	$mensaje=" ";
+
 	
 
-	$serverName = "ANTHONY\ANTHONY";
-	$db="Proyectos";
-	
-	$connectionInfo = array( "Database"=>$db);
-	$conn = sqlsrv_connect( $serverName, $connectionInfo);
-	
-	if( $conn ) {
-		 echo "Conexión establecida.<br/>";
-	}else{
-		 echo "Conexión no se pudo establecer.<br />";
-		 die( print_r( sqlsrv_errors(), true));
-	}
+
+	  if( isset($_POST["txtusuario"]) )
+	   {
+		   $txtusuario =   $_POST['txtusuario'];
+		  
+		  
+		     $sql = "execute sp_helplogins @LoginNamePattern= '$txtusuario'";
+
+			 $stmt = sqlsrv_query( $conn, $sql); 
+			 $row = sqlsrv_fetch_array($stmt) ;
+
+			 if( $row) {
+				echo "Conexión establecida.<br/>";
+				header("location: main.php") ;
+		   }else{
+			echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>'; 
+				die( print_r( sqlsrv_errors(), true));
+		   }
+
+		}
+	/*
 	
        session_start();
 	   unset(  $_SESSION['usuario'] );
@@ -77,7 +107,7 @@
 			  
 			  
 			  # Puede ser 127.0.0.1 o el nombre de tu equipo; o la IP de un servidor remoto
-			  $rutaServidor = "ANTHONY\ANTHONY";
+			  $rutaServidor = "DESKTOP-GI1RABS\BRYAN";
 			 
 			  $sql = "execute sp_helplogins @LoginNamePattern= '$txtusuario'";
 			  //Ejecuta la consulta
