@@ -28,10 +28,8 @@
 		      	<form action="#" class="signin-form" id="ff" method="post" onsubmit="return submitForm();">
 		      		<div class="form-group">
 		      			<input type="text" class="form-control"name="txtusuario" placeholder="Usuario" required>
-						  <div class="form-group">
-	             
-	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-	            </div>
+		      		</div>
+	           
 	            <div class="form-group">
 	            	<button type="submit" class="form-control btn btn-primary submit px-3">Acceder</button>
 	            </div>
@@ -51,9 +49,9 @@
 			</div>
 		</div>
 	</section>
-	<?php 
+	
+<?php 
 
-<<<<<<< HEAD
 $serverName = "DESKTOP-GI1RABS\BRYAN";
 $db="Proyectos";
 
@@ -66,77 +64,69 @@ if( $conn ) {
      echo "Conexión no se pudo establecer.<br />";
      die( print_r( sqlsrv_errors(), true));
 }
+
 ?>
-=======
-	$serverName = "DESKTOP-EG7VE4U\SQLSERVER";
-	$db="Proyectos";
->>>>>>> ac242a096bfcc3e80b2711d6f94a145db8ff75b4
+
+
 	
 	<?php 
-	
 	session_start();
 	unset(  $_SESSION['usuario'] );
 	$mensaje=" ";
 
-	
+	if( isset($_POST["txtusuario"]) )
+	{
+		$txtusuario =   $_POST['txtusuario'];
+	   
+	   
+		  $sql = "execute sp_helplogins @LoginNamePattern= '$txtusuario'";
 
+		  $stmt = sqlsrv_query( $conn, $sql); 
+		  $row = sqlsrv_fetch_array($stmt) ;
 
-	  if( isset($_POST["txtusuario"]) )
-	   {
-		   $txtusuario =   $_POST['txtusuario'];
-		  
-		  
-		     $sql = "execute sp_helplogins @LoginNamePattern= '$txtusuario'";
+		  if( $row) {
+			 echo "Conexión establecida.<br/>";
+			 header("location: main.php") ;
+		}else{
+		 echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>'; 
+			 die( print_r( sqlsrv_errors(), true));
+		}
 
-			 $stmt = sqlsrv_query( $conn, $sql); 
+	 }
+
+		   
+			/* $stmt = sqlsrv_query( $conn, $sql); 
 			 $row = sqlsrv_fetch_array($stmt) ;
 
-			 if( $row) {
-				echo "Conexión establecida.<br/>";
-				header("location: main.php") ;
-		   }else{
-			echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>'; 
-				die( print_r( sqlsrv_errors(), true));
-		   }
+			 if( isset($row['name']) == false){  
+				$message = "Usuario Incorrecto";
+echo "<script type='text/javascript'>alert('$message');</script>";
 
-		}
-	/*
-	
-       session_start();
+
+     die( print_r( sqlsrv_errors(), true));  
+
+           /* Retrieve and display the results of the query. */ 
+          
+        
+
+
+
+   /*    session_start();
 	   unset(  $_SESSION['usuario'] );
 	   $mensaje=" ";
   
 		 if( isset($_POST["txtusuario"]) &&  isset($_POST["txtpassword"])   )
 		  {
 			  $txtusuario =   $_POST['txtusuario'];
-			  
+			  $txtpassword =   $_POST['txtpassword']; 
+			 
+			  $contraseña = $txtpassword ;
+			  $usuario = $txtusuario;
 			  
 			  # Puede ser 127.0.0.1 o el nombre de tu equipo; o la IP de un servidor remoto
-<<<<<<< HEAD
-			  $rutaServidor = "DESKTOP-GI1RABS\BRYAN";
-=======
-			  $rutaServidor = "DESKTOP-EG7VE4U\SQLSERVER";
->>>>>>> ac242a096bfcc3e80b2711d6f94a145db8ff75b4
-			 
-			  $sql = "execute sp_helplogins @LoginNamePattern= '$txtusuario'";
-			  //Ejecuta la consulta
-			  $stmt = sqlsrv_query($conn,$sql);
-			  if ($stmt){
-				header("location: main.php") ;
-			  }else{
-				echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>'; 
-			  }
-			
-			  
-  
-		  } else {
-    
-    //echo '<script language="javascript">alert("Usuario y Clave Incorrecto");</script>';
-                //$mensaje ="Las credenciales ingresadas no coinciden con los datos ya existentes";
-}
-          /* 
-		  try {
-				  $base_de_datos = new PDO("sqlsrv:server=$rutaServidor;", $usuario);
+			  $rutaServidor = "JOHN";
+			  try {
+				  $base_de_datos = new PDO("sqlsrv:server=$rutaServidor;", $usuario, $contraseña);
 				  $base_de_datos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				  header("location: main.php") ;
 				  
@@ -144,15 +134,21 @@ if( $conn ) {
 				echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>';
 				  
 			  }
-		 
-		 
-		 
-		 
-		 
-		 
-		  $result = mysqli_query($con, $sql);
+			  
+			  
+				  
+				  
+			  
+  
+		  }*/ 
+    
+    //echo '<script language="javascript">alert("Usuario y Clave Incorrecto");</script>';
+                //$mensaje ="Las credenciales ingresadas no coinciden con los datos ya existentes";
+
+          /*  $result = mysqli_query($con, $sql);
             if ($result == false) {
                 echo  "Ocurrió un error en la consulta" ;
+
                exit;
             }  
             $row = mysqli_fetch_assoc($result) ;
@@ -169,6 +165,7 @@ if( $conn ) {
                   header("location: main.php") ;
 				   //Libera la memoria del resultado.
     mysqli_free_result($result);
+
     
                 }
            	*/        
@@ -182,6 +179,7 @@ if( $conn ) {
             var isvalid = $( "#ff" ).form('validate'); 
             return isvalid;
         }
+		
      
     </script>
 	<script src="js/jquery.min.js"></script>
