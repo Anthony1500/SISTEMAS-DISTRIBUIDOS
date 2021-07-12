@@ -36,7 +36,14 @@
         
        
 		<div data-options="region:'west',split:true" title="Menu" style="width: 252.583px; height: 737.233px;">
-
+	
+               
+                                
+		
+		
+		
+                        
+                                     
                  
         <div class="app-sidebar__inner">
                             <ul class="vertical-nav-menu">
@@ -52,9 +59,9 @@
                                     </a>
                                     <a href="main.php">
                                         <i class="metismenu-icon pe-7s-display2"></i>
-                                        Ingresar Consultor
+                                        Ingresar Facultad
                                     </a>
-                                    <a href="main.php?pag=proyecto">
+                                    <a href="main.php">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Proyecto
                                     </a>
@@ -75,7 +82,7 @@
                                     </a>
                                     <a href="main.php">
                                         <i class="metismenu-icon pe-7s-display2"></i>
-                                        Editar Consultor
+                                        Editar Facultad
                                     </a>
                                     <a href="main.php">
                                         <i class="metismenu-icon pe-7s-display2"></i>
