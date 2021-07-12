@@ -54,7 +54,7 @@
 	<?php 
 	
 
-	$serverName = "ANTHONY\ANTHONY";
+	$serverName = "DESKTOP-EG7VE4U\SQLSERVER";
 	$db="Proyectos";
 	
 	$connectionInfo = array( "Database"=>$db);
@@ -77,7 +77,7 @@
 			  
 			  
 			  # Puede ser 127.0.0.1 o el nombre de tu equipo; o la IP de un servidor remoto
-			  $rutaServidor = "ANTHONY\ANTHONY";
+			  $rutaServidor = "DESKTOP-EG7VE4U\SQLSERVER";
 			 
 			  $sql = "execute sp_helplogins @LoginNamePattern= '$txtusuario'";
 			  //Ejecuta la consulta
@@ -87,11 +87,7 @@
 			  }else{
 				echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>'; 
 			  }
-			  
-			  
-			  
-				  
-				  
+			
 			  
   
 		  } else {
