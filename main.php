@@ -53,7 +53,7 @@
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Carrera
                                     </a>
-                                    <a href="main.php">
+                                    <a href="main.php?pag=newconsultor">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Consultor
                                     </a>
