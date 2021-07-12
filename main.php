@@ -36,14 +36,7 @@
         
        
 		<div data-options="region:'west',split:true" title="Menu" style="width: 252.583px; height: 737.233px;">
-	
-               
-                                
-		
-		
-		
-                        
-                                     
+
                  
         <div class="app-sidebar__inner">
                             <ul class="vertical-nav-menu">
@@ -61,7 +54,7 @@
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Consultor
                                     </a>
-                                    <a href="main.php">
+                                    <a href="main.php?pag=proyecto">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Proyecto
                                     </a>

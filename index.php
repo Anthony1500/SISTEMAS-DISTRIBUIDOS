@@ -53,6 +53,7 @@
 	</section>
 	<?php 
 
+<<<<<<< HEAD
 $serverName = "DESKTOP-GI1RABS\BRYAN";
 $db="Proyectos";
 
@@ -66,6 +67,10 @@ if( $conn ) {
      die( print_r( sqlsrv_errors(), true));
 }
 ?>
+=======
+	$serverName = "DESKTOP-EG7VE4U\SQLSERVER";
+	$db="Proyectos";
+>>>>>>> ac242a096bfcc3e80b2711d6f94a145db8ff75b4
 	
 	<?php 
 	
@@ -107,7 +112,11 @@ if( $conn ) {
 			  
 			  
 			  # Puede ser 127.0.0.1 o el nombre de tu equipo; o la IP de un servidor remoto
+<<<<<<< HEAD
 			  $rutaServidor = "DESKTOP-GI1RABS\BRYAN";
+=======
+			  $rutaServidor = "DESKTOP-EG7VE4U\SQLSERVER";
+>>>>>>> ac242a096bfcc3e80b2711d6f94a145db8ff75b4
 			 
 			  $sql = "execute sp_helplogins @LoginNamePattern= '$txtusuario'";
 			  //Ejecuta la consulta
@@ -117,11 +126,7 @@ if( $conn ) {
 			  }else{
 				echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>'; 
 			  }
-			  
-			  
-			  
-				  
-				  
+			
 			  
   
 		  } else {
