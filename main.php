@@ -49,6 +49,10 @@
                             <ul class="vertical-nav-menu">
                              <li  class="app-sidebar__heading">&nbsp;&nbsp;Ingresar</li>
                                 <li>
+                                <a href="main.php?pag=newlogin">
+                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        Ingresar Login
+                                    </a>
                                   <a href="main.php">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Carrera
