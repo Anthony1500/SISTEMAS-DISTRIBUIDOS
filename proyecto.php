@@ -46,7 +46,7 @@ require ('controlador/coneccion.php');
                     valueField:'codcarrera',
                     textField:'codcarrera',
                     panelHeight:'auto',
-                    label: 'Codigo Proyecto:',
+                    label: 'Codigo Carrera:',
                     labelWidth:'160px'
                     ">               
             </select>
