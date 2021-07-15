@@ -5,7 +5,7 @@ header('Access-Control-Allow-Headers: token, Content-Type');
 header('Access-Control-Max-Age: 178000');
 header('Content-Length: 0');
 header('Content-Type: application/json');
-require ('coneccionjohn.php'); 
+require ('coneccion.php'); 
 $op=  $_GET['op'] ;
 if( !isset($op) )
 {
@@ -24,17 +24,16 @@ switch ($op) {
             );          
             try{
                    
-                $login = $_POST['login']; 
-                $password = $_POST['password']; 
-                $RoleName = $_POST['RoleName']; 
-               
-                $sql = "execute sp_addlogin '$login','$password','Proyectos'"; 
-                $insert = sqlsrv_query($conn,$sql); 
-
-                $sql1 = "execute sp_adduser '$login','$login','$RoleName'"; 
-                $insert = sqlsrv_query($conn,$sql1); 
-                
+                $usuario = $_POST['usuario']; 
+                $contraseña = $_POST['contraseña']; 
+                $RoleName = $_POST['RoleName'];                            
+                $sql = " sp_addlogin '$usuario','$contraseña','Proyectos'"; 
                 echo $sql;
+                $insert = sqlsrv_query($conn,$sql); 
+                $sql1 = " sp_adduser '$usuario','$usuario','$RoleName'"; 
+                echo $sql1;
+                $insert = sqlsrv_query($conn,$sql1); 
+
                 
              
             if($insert){ 
@@ -45,16 +44,6 @@ switch ($op) {
 
 
 catch (Exception $e){ //usar logs
-    $response = array( 
-        'status' => 0, 
-        'msg' =>  'La propiedad ya existe'  
-    );           
-}
-            
-            echo json_encode($response); 
- break; 
-
- catch (Exception $e){ //usar logs
     $response = array( 
         'status' => 0, 
         'msg' =>  'La propiedad ya existe'  

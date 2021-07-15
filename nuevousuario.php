@@ -1,24 +1,26 @@
 <?php
-require ('controlador/coneccionjohn.php'); 
+require ('controlador/coneccion.php'); 
 ?>
-<div id="p" class="easyui-panel" title="Ingreso de Consultor" style="width:100%;height:100%; ">
+<div id="p" class="easyui-panel" title="Ingreso de nuevos Usuarios" style="width:100%;height:100%; ">
 <form id="frmpro" method="post"     style="margin:0;padding:20px 50px">
            
 
 
               
             <div style="margin-bottom:5px">
-                <input name="login" labelPosition="top" class="easyui-textbox" required="true" label="Login: " style="width:15%" >
-            </div> 
-                    
-            
-            
-            <div style="margin-bottom:5px">
-                <input id="password" name="password" labelPosition="top" class="easyui-passwordbox" required="true" label="Password:" style="width:80%" >
+                <input name="usuario" labelPosition="top" class="easyui-textbox" required="true" label="Nombre: " style="width:15%" >
             </div> 
             <div style="margin-bottom:5px">
-                 <input  id="repassword" name="repassword"  validType="confirmPass['#password']" class="easyui-passwordbox" labelPosition="top"   iconWidth="28" required="true" label="Repetir Password:" style="width:80%" >
-            </div> 
+                <input name="contraseña" labelPosition="top" class="easyui-textbox" required="true" label=" Contraseña " style="width:25%" >
+            </div>            
+            <div style="margin-bottom:5px">
+                <input  labelPosition="top" class="easyui-textbox" required="true" label=" Confirmar contraseña " style="width:25%" >
+            </div>
+               
+         
+                      
+        
+            
             <div  style="margin-bottom:5px">
             <select id="RoleName"  name ="RoleName"labelPosition="top"required="true" class="easyui-combobox" 
             style="width:15%;"  data-options="
@@ -66,7 +68,7 @@ require ('controlador/coneccionjohn.php');
         }
         function saveUser(){              
            $('#frmpro').form('submit',{
-                url: 'controlador/user.php?op=insert',
+                url: 'controlador/nuevousuario.php?op=insert',
                 onSubmit: function(){
                     var esvalido =  $(this).form('validate');
                     if( esvalido){
