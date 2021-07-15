@@ -65,7 +65,7 @@
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Facultad
                                     </a>
-                                    <a href="main.php">
+                                    <a href="main.php?pag=proyecto">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Proyecto
                                     </a>

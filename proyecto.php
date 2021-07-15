@@ -1,5 +1,5 @@
 <?php
-require ('controlador/coneccionjavier.php'); 
+require ('controlador/coneccion.php'); 
 ?>
 <div id="p" class="easyui-panel" title="Ingreso de Seguimiento" style="width:100%;height:100%; ">
 <form id="frmpro" method="post"     style="margin:0;padding:20px 50px">

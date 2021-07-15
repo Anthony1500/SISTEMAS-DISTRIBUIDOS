@@ -1,7 +1,7 @@
 <?php
 require ('controlador/coneccionjohn.php'); 
 ?>
-<div id="p" class="easyui-panel" title="Ingreso de Consultor" style="width:100%;height:100%; ">
+<div id="p" class="easyui-panel" title="Ingreso de usuario" style="width:100%;height:100%; ">
 <form id="frmpro" method="post"     style="margin:0;padding:20px 50px">
            
 
@@ -11,7 +11,7 @@ require ('controlador/coneccionjohn.php');
                 <input name="login" labelPosition="top" class="easyui-textbox" required="true" label="Login: " style="width:15%" >
             </div> 
                     
-            
+
             
             <div style="margin-bottom:5px">
                 <input id="password" name="password" labelPosition="top" class="easyui-passwordbox" required="true" label="Password:" style="width:80%" >

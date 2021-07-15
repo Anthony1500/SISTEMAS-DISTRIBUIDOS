@@ -5,7 +5,7 @@ header('Access-Control-Allow-Headers: token, Content-Type');
 header('Access-Control-Max-Age: 178000');
 header('Content-Length: 0');
 header('Content-Type: application/json');
-require ('coneccionjavier.php'); 
+require ('coneccion.php'); 
 $op=  $_GET['op'] ;
 if( !isset($op) )
 {
@@ -36,7 +36,7 @@ switch ($op) {
                 $codcarrera = $_POST['codcarrera']; 
 
                 
-                $sql = "execute sp_insertarproyecto '$codproyecto','$descripcionp','$modalidadproyecto',$fechaingresoproyecto,'$nivel','$numerodelaresoluciones','$fecharesolucion','$año','$valor','$codcarrera'"; 
+                $sql = "execute sp_insertarproyecto '$codproyecto','$descripcionp','$modalidadproyecto','$fechaingresoproyecto','$nivel','$numerodelaresoluciones','$fecharesolucion','$año','$valor','$codcarrera'"; 
                
                
 
