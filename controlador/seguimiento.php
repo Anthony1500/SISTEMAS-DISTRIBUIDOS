@@ -57,7 +57,29 @@ catch (Exception $e){ //usar logs
  break; 
 
  case 'update':
-   
+    $response = array( 
+        'status' => 0, 
+        'msg' =>  '  Se produjeron algunos problemas. Inténtalo de nuevo.' 
+    );          
+    if(!empty($_POST['codseguimiento'])&&!empty($_POST['fecha']) && !empty($_POST['detalle'])&& !empty($_POST['porcentaje'])&&!empty($_POST['estado'])&&!empty($_POST['codproyecto'])){ 
+                $codseguimiento = $_POST['codseguimiento']; 
+                $fecha = $_POST['fecha'];   
+                $detalle = $_POST['detalle']; 
+                $porcentaje = $_POST['porcentaje'];   
+                $estado = $_POST['estado']; 
+                $codproyecto= $_POST['codproyecto']; 
+                $sql = "execute sp_actualizarseguimiento '$codseguimiento','$fecha','$detalle','$porcentaje','$estado','$codproyecto'";
+               $update = sqlsrv_query($conn,$sql);
+                 
+                if($update){ 
+                    $response['status'] = 1; 
+                    $response['msg'] = '¡Los datos del usuario se han actualizado con éxito!'; 
+                } 
+            }else{ 
+                $response['msg'] = 'Por favor complete todos los campos obligatorios.'; 
+            } 
+             
+            echo json_encode($response); 
 
  break;
  case 'selectcombo':
@@ -76,7 +98,22 @@ catch (Exception $e){ //usar logs
   
     echo json_encode($items);
     break; 
-  
+    case 'selectcombo1':
+        $sql="sp_listaseguimiento";
+        $resultqry = sqlsrv_query($conn,$sql);
+        if (!$resultqry) {
+        
+        exit;
+        }
+        
+        $items=array();
+     
+        while($row = sqlsrv_fetch_object($resultqry)) {
+           array_push($items, $row);
+        }
+      
+        echo json_encode($items);
+        break; 
  case 'delete':
        
  break; 
