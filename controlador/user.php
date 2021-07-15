@@ -54,15 +54,9 @@ catch (Exception $e){ //usar logs
             echo json_encode($response); 
  break; 
 
- catch (Exception $e){ //usar logs
-    $response = array( 
-        'status' => 0, 
-        'msg' =>  'La propiedad ya existe'  
-    );           
-}
+ 
             
-            echo json_encode($response); 
- break; 
+  
 
  case 'update':
    
