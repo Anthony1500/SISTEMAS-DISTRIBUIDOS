@@ -8,20 +8,20 @@ require ('controlador/coneccion.php');
 
               
             <div style="margin-bottom:5px">
-                <input name="codseguimiento" labelPosition="top" class="easyui-textbox" required="true" label="Codigo seguimiento: " style="width:15%" >
+                <input name="codseguimiento" labelPosition="top" class="easyui-textbox" required="true" label="Codigo seguimiento (*) " style="width:15%" >
             </div> 
             <div style="margin-bottom:5px">
-                <input name="fecha" labelPosition="top" class="easyui-datebox" type=»text»  data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha:" style="width:15%" >
+                <input name="fecha" labelPosition="top" class="easyui-datebox" type=»text»  data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha (*)" style="width:15%" >
             </div>              
             <div style="margin-bottom:5px">
-                <input name="detalle" labelPosition="top" class="easyui-textbox" required="true" label=" Detalle " style="width:25%" >
+                <input name="detalle" labelPosition="top" class="easyui-textbox" required="true" label=" Detalle (*) " style="width:25%" >
             </div>
             <div style="margin-bottom:5px">
-                <input name="porcentaje" labelPosition="top" class="easyui-numberbox" required="true" label=" Porcentaje:"  style="width:15%" >
+                <input name="porcentaje" labelPosition="top" class="easyui-numberbox" required="true" label=" Porcentaje (*)"  style="width:15%" >
             </div>
         
         <div style="margin-bottom:5px">
-                <input name="estado" labelPosition="top" class="easyui-textbox" required="true" label=" Estado: " style="width:25%" >
+                <input name="estado" labelPosition="top" class="easyui-textbox" required="true" label=" Estado (*) " style="width:25%" >
             </div> 
                       
         
@@ -34,7 +34,7 @@ require ('controlador/coneccion.php');
                     valueField:'codproyecto',
                     textField:'codproyecto',
                     panelHeight:'auto',
-                    label: 'Codigo Proyecto:',
+                    label: 'Codigo Proyecto (*)',
                     labelWidth:'160px'
                     ">               
             </select>
@@ -50,89 +50,41 @@ require ('controlador/coneccion.php');
 
     </div>   
     </div>
-    <?php
-    //<a  href='main.php?pag=newseguimiento' class="easyui-linkbutton" onclick="limpiar()" iconCls="icon-remove" style="width:90px">Limpiar</a>
-   require ('controlador/coneccion.php'); 
- 
-    //$prop_id = $_POST['prop_id'];   
     
- 
-    $sql = "select * from seguimiento ORDER BY codseguimiento "; 
-    $result= sqlsrv_query($conn,$sql); 
-    
-    $totalFilas=sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC);
-    if($totalFilas == 0){   
-        ?>
-     <script language="javascript">alert("El usuario no tiene datos");
-        
-        </script>
-        
+    <p></p>
         <?php
-        }else{
-    ?>
-<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">Datos del Seguimiento.</h6></font></th>
-    <table style="margin: 0 auto;width: 50%;height: 100px;" border="2"  >
-    <tr><th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">N#</h6></font></th><th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">Codigo Seguimiento</h6></font></th><th ><font color="Black"face="Comic Sans MS,arial"><h6 align="center">Fecha</h6></font></th>
-<th > <font color="Black"face="Comic Sans MS,arial"><h6 align="center">Detalle </h6></font></th><th > <font color="Black"face="Comic Sans MS,arial"><h6 align="center">Porcentaje</h6></font></th><th > <font color="Black"face="Comic Sans MS,arial"><h6 align="center">Estado</h6></font></th><th > <font color="Black"face="Comic Sans MS,arial"><h6 align="center">Codigo Proyecto</h6></font></th></tr>
-    
-    <?php
-    
-    $index = 1;
-    
-    while($impresion=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
-    {
+require ('controlador/coneccion.php'); 
+
+$query="SELECT * FROM seguimiento";
+
+        $resultado=sqlsrv_query($conn, $query);
+        //se desplegaran los resultados en la tabla
+        //<a  href='main.php?pag=newconsultor' class="easyui-linkbutton" onclick="limpiar()" iconCls="icon-remove" style="width:90px">Limpiar</a>
+       
+        echo "<table border=2 align=center>";
+        echo "<tr>";
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Codigo Seguimiento".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Fecha".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Detalle".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Porcentaje".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Estado".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Codigo Proyecto".'</h6></font></th>';
+        echo "</tr>";
+
+        while($row=sqlsrv_fetch_array($resultado)){
+            echo '<tr>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['codseguimiento'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['fecha']->format('Y-m-d').'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['detalle'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['porcentaje'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['estado'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['codproyecto'].'</h6></font></td>';
+            echo '</tr>';           
+        }
         
-        ?>
-    
-   
-
-<tr><td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center"><?php echo $index; ?></h6></font></td><td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center"><?php echo $impresion['codseguimiento'] ?></h6></font></td><td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center"><?php echo $impresion['fecha']->format('Y-m-d'); ?></h6></font></td><td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center"><?php echo $impresion['detalle'] ?></h6></font></td><td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center"><?php echo $impresion['porcentaje'] ?></h6></font></td><td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center"><?php echo $impresion['estado'] ?></h6></font></td><td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center"><?php echo $impresion['codproyecto'] ?></h6></font></td></tr>
-<?php
-$index ++;
-}}
-sqlsrv_free_stmt($result);
-?>
-</table>
-
-
-
-<table style="margin: 0 auto;" >
-
-
-<thead> 
- 
- 
-
- </thead>
-     <?php
-      
-         ?>
-     
-   
-</tr>
-</thead>
-
-
- 
-
- <?php
-
 
 
 ?>
- </table>
- 
-
-
- 
- 
-         <?php
-   
-
-
-
-?>
-
 
 
 
@@ -189,7 +141,7 @@ sqlsrv_free_stmt($result);
                             title: 'exito',
                             msg: '¡se ha agregado con exito a la base!'
                         });
-                        window.location.href= 'main.php?pag=newseguimiento';
+                       // window.location.href= 'main.php?pag=newseguimiento';
                 }
             }); 
         }

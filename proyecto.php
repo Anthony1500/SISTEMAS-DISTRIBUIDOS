@@ -1,40 +1,49 @@
 <?php
 require ('controlador/coneccion.php'); 
 ?>
-<div id="p" class="easyui-panel" title="Ingreso de Seguimiento" style="width:100%;height:100%; ">
+<div id="p" class="easyui-panel" title="Ingreso Proyecto" style="width:100%;height:100%; ">
 <form id="frmpro" method="post"     style="margin:0;padding:20px 50px">
            
 
 
               
             <div style="margin-bottom:5px">
-                <input name="codproyecto" labelPosition="top" class="easyui-textbox" required="true" label="Codigo Proyecto: " style="width:15%" >
+                <input name="codproyecto" labelPosition="top" class="easyui-textbox" required="true" label="Codigo Proyecto (*) " style="width:15%" >
             </div> 
             <div style="margin-bottom:5px">
-                <input name="descripcionp" labelPosition="top" class="easyui-textbox" required="true" label="Descripcion: " style="width:15%" >
+                <input name="descripcionp" labelPosition="top" class="easyui-textbox" required="true" label="Descripcion (*) " style="width:35%" >
             </div>             
             <div style="margin-bottom:5px">
-                <input name="modalidadproyecto" labelPosition="top" class="easyui-textbox" required="true" label=" Modalidad " style="width:25%" >
-            </div>
+                <select id="cc" label="Modalidad Proyecto (*)" labelPosition="top" style="width:15%" required="true" class="easyui-combobox"required="true" name="modalidadproyecto">
+                <option  selected="selected" ></option>
+                <option>PRESENCIAL</option>
+                <option>SEMIPRESENCIAL</option>
+                <option>DISTANCIA</option>
+                <option>EN LINEA</option>
+                
+                
+            </select>
+            </div> 
+
             <div style="margin-bottom:5px">
-                <input name="fechaingresoproyecto" labelPosition="top" class="easyui-datebox" type=»text»  data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha ingreso:" style="width:15%" >
+                <input name="fechaingresoproyecto" labelPosition="top" id="inicial"class="easyui-datebox" type=»text»  data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha ingreso (*)" style="width:15%" >
             </div>  
         
         <div style="margin-bottom:5px">
-                <input name="nivel" labelPosition="top" class="easyui-textbox" required="true" label=" Nivel: " style="width:25%" >
+                <input name="nivel" labelPosition="top" class="easyui-textbox" required="true" label=" Nivel (*) " style="width:15%" >
             </div> 
                       
             <div style="margin-bottom:5px">
-                <input name="numerodelaresoluciones" labelPosition="top" class="easyui-textbox" required="true" label=" Numero Resolucion : " style="width:25%" >
+                <input name="numerodelaresoluciones" labelPosition="top" class="easyui-textbox" required="true" label=" Numero Resolucion (*) " style="width:15%" >
             </div> 
             <div style="margin-bottom:5px">
-                <input name="fecharesolucion" labelPosition="top" class="easyui-datebox" type=»text»  data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha Resolucion:" style="width:15%" >
+                <input name="fecharesolucion" labelPosition="top"id="final" class="easyui-datebox"   data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha Resolucion (*)" style="width:15%" >
             </div>  
             <div style="margin-bottom:5px">
-                <input name="año" labelPosition="top" class="easyui-textbox" required="true" label=" Año: " style="width:25%" >
+                <input name="year" labelPosition="top" class="easyui-textbox" required="true" label=" Año (*) " style="width:15%" >
             </div> 
             <div style="margin-bottom:5px">
-                <input name="valor" labelPosition="top" class="easyui-textbox" required="true" label=" Valor: " style="width:25%" >
+                <input name="valor" labelPosition="top" class="easyui-textbox" required="true" label=" Valor (*) " style="width:15%" >
             </div> 
         
             
@@ -46,7 +55,7 @@ require ('controlador/coneccion.php');
                     valueField:'codcarrera',
                     textField:'codcarrera',
                     panelHeight:'auto',
-                    label: 'Codigo Carrera:',
+                    label: 'Codigo Carrera (*)',
                     labelWidth:'160px'
                     ">               
             </select>
@@ -59,9 +68,62 @@ require ('controlador/coneccion.php');
     </div>   
     </div>
     
+    <?php
+require ('controlador/coneccion.php'); 
+
+$query="SELECT * FROM proyecto";
+
+        $resultado=sqlsrv_query($conn, $query);
+        //se desplegaran los resultados en la tabla
+        //<a  href='main.php?pag=newconsultor' class="easyui-linkbutton" onclick="limpiar()" iconCls="icon-remove" style="width:90px">Limpiar</a>
+       
+        echo "<table border=2  align=center>";
+        echo "<tr>";
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Codigo Proyecto".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Descripcion".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Modalidad".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Fecha Ingreso".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Nivel".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Numero Resolucion".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Fecha Resolucion".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Año".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Valor".'</h6></font></th>';
+        echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Codigo Carrera".'</h6></font></th>';
+        echo "</tr>";
+
+        while($row=sqlsrv_fetch_array($resultado)){
+            
+            echo '<tr>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['codproyecto'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['descripcionp'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['modalidadproyecto'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['fechaingresoproyecto']->format('Y-m-d').'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['nivel'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['numeroderesolucion'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['fecharesolucion']->format('Y-m-d').'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['year'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['valor'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['codcarrera'].'</h6></font></td>';
+            echo '</tr>';           
+        }
+        
+
+
+?>
  
+
     <script type="text/javascript">
        
+       $('#cc').combobox({
+           
+           
+           panelHeight:'150',
+           
+           onSelect: function(rec)
+           {
+            
+           }
+       });
        function limpiar(){
         document.getElementById("frmpro").reset();
        }
@@ -104,7 +166,7 @@ require ('controlador/coneccion.php');
                             title: 'exito',
                             msg: '¡se ha agregado con exito a la base!'
                         });
-                    
+                        window.location.href= 'main.php?pag=proyecto';
                 }
             }); 
         }

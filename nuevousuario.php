@@ -11,10 +11,10 @@ require ('controlador/coneccion.php');
                 <input name="usuario" labelPosition="top" class="easyui-textbox" required="true" label="Nombre: " style="width:15%" >
             </div> 
             <div style="margin-bottom:5px">
-                <input name="contraseña" labelPosition="top" class="easyui-textbox" required="true" label=" Contraseña " style="width:25%" >
+                <input name="contraseña" labelPosition="top" class="easyui-textbox" required="true" label=" Contraseña " style="width:15%" >
             </div>            
             <div style="margin-bottom:5px">
-                <input  labelPosition="top" class="easyui-textbox" required="true" label=" Confirmar contraseña " style="width:25%" >
+                <input  labelPosition="top" class="easyui-textbox" required="true" label=" Confirmar contraseña " style="width:15%" >
             </div>
                
          

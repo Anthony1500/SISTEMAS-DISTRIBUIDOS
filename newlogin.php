@@ -8,16 +8,16 @@ require ('controlador/coneccion.php');
 
               
             <div style="margin-bottom:5px">
-                <input name="login" labelPosition="top" class="easyui-textbox" required="true" label="Login: " style="width:15%" >
+                <input name="login" labelPosition="top" class="easyui-textbox" required="true" label="Login (*) " style="width:15%" >
             </div> 
                     
             
             
             <div style="margin-bottom:5px">
-                <input id="password" name="password" labelPosition="top" class="easyui-passwordbox" required="true" label="Password:" style="width:80%" >
+                <input id="password" name="password" labelPosition="top" class="easyui-passwordbox" required="true" label="Password (*)" style="width:23%" >
             </div> 
             <div style="margin-bottom:5px">
-                 <input  id="repassword" name="repassword"  validType="confirmPass['#password']" class="easyui-passwordbox" labelPosition="top"   iconWidth="28" required="true" label="Repetir Password:" style="width:80%" >
+                 <input  id="repassword" name="repassword"  validType="confirmPass['#password']" class="easyui-passwordbox" labelPosition="top"   iconWidth="28" required="true" label="Repetir Password (*)" style="width:23%" >
             </div> 
             <div  style="margin-bottom:5px">
             <select id="RoleName"  name ="RoleName"labelPosition="top"required="true" class="easyui-combobox" 
@@ -27,7 +27,7 @@ require ('controlador/coneccion.php');
                     valueField:'RoleName',
                     textField:'RoleName',
                     panelHeight:'auto',
-                    label: 'Rol:',
+                    label: 'Rol (*)',
                     labelWidth:'160px'
                     ">               
             </select>

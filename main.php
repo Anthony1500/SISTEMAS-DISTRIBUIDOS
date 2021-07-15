@@ -53,7 +53,7 @@
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Login
                                     </a>
-                                  <a href="main.php">
+                                  <a href="main.php?pag=newcarrera">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Carrera
                                     </a>
@@ -61,7 +61,7 @@
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Consultor
                                     </a>
-                                    <a href="main.php">
+                                    <a href="main.php?pag=newfacultad">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Ingresar Facultad
                                     </a>

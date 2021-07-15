@@ -5,7 +5,7 @@ header('Access-Control-Allow-Headers: token, Content-Type');
 header('Access-Control-Max-Age: 178000');
 header('Content-Length: 0');
 header('Content-Type: application/json');
-require ('coneccionjohn.php'); 
+require ('coneccion.php'); 
 $op=  $_GET['op'] ;
 if( !isset($op) )
 {
