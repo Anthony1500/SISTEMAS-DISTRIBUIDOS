@@ -141,7 +141,7 @@ $query="SELECT * FROM seguimiento";
                             title: 'exito',
                             msg: '¡se ha agregado con exito a la base!'
                         });
-                       // window.location.href= 'main.php?pag=newseguimiento';
+                        window.location.href= 'main.php?pag=newseguimiento';
                 }
             }); 
         }
