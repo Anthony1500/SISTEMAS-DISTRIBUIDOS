@@ -20,13 +20,34 @@ require ('controlador/coneccion.php');
                     labelWidth:'160px'
                     ">   
                     </select> 
-                             
-          
+                    <div style="margin-bottom:5px">
+                <input name="fecha" id="fecha" labelPosition="top" class="easyui-datebox" type=»text»  data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha (*)" style="width:15%" >
+            </div>              
+            <div style="margin-bottom:5px">
+                <input name="detalle" id="detalle" labelPosition="top" class="easyui-textbox" required="true" label=" Detalle (*) " style="width:25%" >
+            </div>
             <div style="margin-bottom:5px">
                 <input name="porcentajeavance" id="porcentajeavance" labelPosition="top" class="easyui-numberbox" required="true" label=" Porcentaje (*)"  style="width:15%" >
             </div>
         
-       
+        <div style="margin-bottom:5px">
+                <input name="estado" id="estado"labelPosition="top" class="easyui-textbox" required="true" label=" Estado (*) " style="width:25%" >
+            </div> 
+                      
+        
+            
+            <div  style="margin-bottom:5px">
+            <select id="codproyecto"  name ="codproyecto"labelPosition="top"required="true" class="easyui-combobox" 
+            style="width:15%;"  data-options="
+                    url:'controlador/seguimiento.php?op=selectcombo',
+                    method:'get',
+                    valueField:'codproyecto',
+                    textField:'codproyecto',
+                    panelHeight:'auto',
+                    label: 'Codigo Proyecto (*)',
+                    labelWidth:'160px'
+                    ">               
+            </select>
       </form>
             </form>
             <div style="text-align:center;padding:5px 0">
@@ -60,16 +81,19 @@ require ('controlador/coneccion.php');
        success: function(response){
             var len = response.length;
             for(var i=0; i<len; i++){                
-               ;
-               var codseguimiento1 = response[i].codseguimiento;
+                var fecha1 = response[i].fecha;
+                var detalle1 = response[i].detalle;
                 var porcentajeavance1 = response[i].porcentajeavance;
-                     
+                var estado1 = response[i].estado;
+                var codproyecto1 = response[i].codproyecto;          
                 
 
                  
-                $("#cmvdb").val(codseguimiento1);
+                 $("#fecha").val(fecha1);
+                 $("#detalle").val(detalle1);
                  $("#porcentajeavance").val(porcentajeavance1);
-                 
+                 $("#estado").val(estado1);
+                 $("#codproyecto").val(codproyecto1);
                  
               
                 console.log(id);

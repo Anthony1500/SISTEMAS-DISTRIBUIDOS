@@ -15,7 +15,7 @@ if( !isset($op) )
  
 switch ($op) { 
    
- case 'upsdate':
+ case 'insert':
     $archivoguardado=0;
     $mensaje = "";
         $response = array( 
@@ -24,22 +24,18 @@ switch ($op) {
             );          
             try{
                    
-                $nombres = $_POST['nombres']; 
-                $direccion = $_POST['direccion']; 
-                $correo = $_POST['correo']; 
-                $edad = $_POST['edad']; 
-                $telefono = $_POST['telefono']; 
-                $celular = $_POST['celular']; 
-                $titulosegundonivel = $_POST['titulosegundonivel']; 
-                $titulotercernivel = $_POST['titulotercernivel']; 
-            
-                
-                $sql = "execute sp_actualizarcon '$apellidos','$direccion','$correo','$edad','$telefono','$celular','$titulosegundonivel','$titulotercernivel' WHERE nombres='$nombres' "; 
+                $login = $_POST['login']; 
+                $password = $_POST['password']; 
+                $RoleName = $_POST['RoleName']; 
                
-               
+                $sql = "execute sp_addlogin '$login','$password','Proyectos'"; 
+                $insert = sqlsrv_query($conn,$sql); 
 
+                $sql1 = "execute sp_adduser '$login','$login','$RoleName'"; 
+                $insert = sqlsrv_query($conn,$sql1); 
+                
                 echo $sql;
-                $insert = sqlsrv_query($conn,$sql);
+                
              
             if($insert){ 
                 $response['status'] = 1; 
@@ -57,58 +53,17 @@ catch (Exception $e){ //usar logs
             
             echo json_encode($response); 
  break; 
- case 'select':
-    $nombres = $_POST['nombres']; 
-    $sql="sp_buscarcon 'john' ";
-    $resultqry = sqlsrv_query($conn,$sql);
-    if (!$resultqry) {
-    
-    exit;
-    }
-    
-    $items=array();
+
  
-    while($row = sqlsrv_fetch_object($resultqry)) {
-       array_push($items, $row);
-    }
+            
   
-    echo json_encode($items);
-    break; 
+
  case 'update':
-    $response = array( 
-            'status' => 0, 
-            'msg' =>  '  Se produjeron algunos problemas. Inténtalo de nuevo.' 
-        );          
-        if( !empty($_POST['nombres'])&& !empty($_POST['apellidos']) &&  !empty($_POST['direccion'])&&  !empty($_POST['correo'])&&  !empty($_POST['edad'])&&  !empty($_POST['telefono'])&&  !empty($_POST['celular'])&&  !empty($_POST['titulosegundonivel'])&&  !empty($_POST['titulotercernivel'])  ){ 
-            $nombres = $_POST['nombres']; 
-            $apellidos = $_POST['apellidos'];
-            $direccion = $_POST['direccion']; 
-            $correo = $_POST['correo']; 
-            $edad = $_POST['edad']; 
-            $telefono = $_POST['telefono']; 
-            $celular = $_POST['celular']; 
-            $titulosegundonivel = $_POST['titulosegundonivel']; 
-            $titulotercernivel = $_POST['titulotercernivel']; 
-        
-            $sql = "execute sp_actualizarcon  '$nombres', '$apellidos','$direccion','$correo','$edad','$telefono','$celular','$titulosegundonivel','$titulotercernivel'  "; 
-            $update = sqlsrv_query($conn,$sql); 
-             
-            if($update){ 
-                $response['status'] = 1; 
-                $response['msg'] = '¡Los datos del usuario se han actualizado con éxito!'; 
-            } 
-        }else{ 
-            $response['msg'] = 'Por favor complete todos los campos obligatorios.'; 
-        } 
-         
-        echo json_encode($response); 
-
-    break; 
-
-
- case 'selectcombo':
    
-    $sql="sp_listacon ";
+
+ break;
+ case 'selectcombo':
+    $sql="sp_helprole";
     $resultqry = sqlsrv_query($conn,$sql);
     if (!$resultqry) {
     
@@ -122,34 +77,11 @@ catch (Exception $e){ //usar logs
     }
   
     echo json_encode($items);
-
-
     break; 
-    case 'selectcombo2':
-                
-        $nombres = $_POST['id'];
-
-         $sql="execute sp_buscarcon '$nombres'";
-         $resultqry = sqlsrv_query($conn,$sql);
-         if (!$resultqry) {
-         
-         exit;
-         }
-         
-         $items=array();
-      
-         while($row = sqlsrv_fetch_object($resultqry)) {
-            array_push($items, $row);
-         }
-       
-         echo json_encode($items);
-    
-         break; 
   
  case 'delete':
        
  break; 
- 
  
     default:
             echo json_encode( "Error no existe la opcion ".$op);
