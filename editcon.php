@@ -2,12 +2,11 @@
 require ('controlador/coneccion.php'); 
 if( isset($_GET["id"]))
 { 
-    
     $id=$_GET["id"];
-    $sql = "SELECT * FROM Consultor Where  nombres='$id' ";
+    $sql = " sp_buscarcon '$id' ";
     $resultado = sqlsrv_query($conn,$sql);
-    $row=sqlsrv_fetch_object($resultado);
-
+    $row=sqlsrv_fetch_array($resultado);
+  
 }
 ?>
 <div id="p" class="easyui-panel" title="Ingreso de Consultor" style="width:100%;height:100%; ">
