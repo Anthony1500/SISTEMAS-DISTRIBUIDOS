@@ -92,7 +92,7 @@
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Editar Proyecto
                                     </a>
-                                    <a href="main.php?pag=1">
+                                    <a href="main.php?pag=updateseguimiento">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Editar Seguimiento
                                     </a>
