@@ -59,9 +59,11 @@ if( isset($_GET["id"]))
                 <input name="estado" Value="<?php echo $row['estado'] ?>" labelPosition="top" class="easyui-textbox" required="true" label=" Correo (*) " style="width:25%" >
             </div> 
             
+        
+
             <div  style="margin-bottom:5px">
-            <select id="codproyecto"  name ="codproyecto"labelPosition="top"required="true" class="easyui-combobox" 
-            style="width:15%;"  data-options="
+            <select id="codproyecto" name="codproyecto" labelPosition="top" class="easyui-combobox" name="dept"   value="true" label="Cod Proyecto :"  style="width:15%"
+            data-options="
                     url:'controlador/seguimiento.php?op=selectcombo',
                     method:'get',
                     valueField:'codproyecto',
@@ -69,8 +71,17 @@ if( isset($_GET["id"]))
                     panelHeight:'auto',
                     label: 'Codigo Proyecto (*)',
                     labelWidth:'160px'
-                    ">               
-            </select>
+                    ">
+            
+            
+        <option   value="<?php echo $row ['codproyecto']?>" > <?php echo $row ['codproyecto']?></option>
+
+        
+   
+         </select>
+         
+        </div>
+
          
 
            

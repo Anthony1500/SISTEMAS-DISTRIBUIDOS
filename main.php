@@ -76,7 +76,7 @@
                                 </li>
                                 <li  class="app-sidebar__heading">&nbsp;&nbsp;Editar</li>
                                 <li>
-                                <a href="main.php?pag=2">
+                                <a href="main.php?pag=editcarrera">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Editar Carrera
                                     </a>

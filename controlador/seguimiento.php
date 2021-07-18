@@ -97,7 +97,23 @@ catch (Exception $e){ //usar logs
     }
   
     echo json_encode($items);
-    break; 
+    break;
+    case 'selectcombo3':
+        $sql="sp_listafacultad";
+        $resultqry = sqlsrv_query($conn,$sql);
+        if (!$resultqry) {
+        
+        exit;
+        }
+        
+        $items=array();
+     
+        while($row = sqlsrv_fetch_object($resultqry)) {
+           array_push($items, $row);
+        }
+      
+        echo json_encode($items);
+        break;  
     case 'selectcombo1':
         $sql="sp_listaseguimiento";
         $resultqry = sqlsrv_query($conn,$sql);
