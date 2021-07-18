@@ -88,11 +88,11 @@
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Editar Facultad
                                     </a>
-                                    <a href="main.php">
+                                    <a href="main.php?pag=newlist">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Editar Proyecto
                                     </a>
-                                    <a href="main.php?pag=updateseguimiento">
+                                    <a href="main.php?pag=1">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Editar Seguimiento
                                     </a>

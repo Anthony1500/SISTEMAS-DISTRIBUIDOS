@@ -27,12 +27,12 @@ switch ($op) {
                 $codseguimiento = $_POST['codseguimiento']; 
                 $fecha = $_POST['fecha']; 
                 $detalle = $_POST['detalle']; 
-                $porcentaje = $_POST['porcentaje']; 
+                $porcentajeavance = $_POST['porcentajeavance']; 
                 $estado = $_POST['estado']; 
                 $codproyecto = $_POST['codproyecto']; 
             
                 
-                $sql = "execute sp_insertarseguimiento '$codseguimiento','$fecha','$detalle',$porcentaje,'$estado','$codproyecto'"; 
+                $sql = "execute sp_insertarseguimiento '$codseguimiento','$fecha','$detalle',$porcentajeavance,'$estado','$codproyecto'"; 
                
                
 
@@ -65,10 +65,10 @@ catch (Exception $e){ //usar logs
                 $codseguimiento = $_POST['codseguimiento']; 
                 $fecha = $_POST['fecha'];   
                 $detalle = $_POST['detalle']; 
-                $porcentaje = $_POST['porcentaje'];   
+                $porcentajeavance = $_POST['porcentajeavance'];   
                 $estado = $_POST['estado']; 
                 $codproyecto= $_POST['codproyecto']; 
-                $sql = "execute sp_actualizarseguimiento '$codseguimiento','$fecha','$detalle','$porcentaje','$estado','$codproyecto'";
+                $sql = "execute sp_actualizarseguimiento '$codseguimiento','$fecha','$detalle','$porcentajeavance','$estado','$codproyecto'";
                $update = sqlsrv_query($conn,$sql);
                  
                 if($update){ 
@@ -114,6 +114,27 @@ catch (Exception $e){ //usar logs
       
         echo json_encode($items);
         break; 
+       
+            case 'selectcombo2':
+                
+               $codseguimiento = $_POST['id'];
+
+                $sql="execute sp_buscarseguimiento '$codseguimiento'";
+                $resultqry = sqlsrv_query($conn,$sql);
+                if (!$resultqry) {
+                
+                exit;
+                }
+                
+                $items=array();
+             
+                while($row = sqlsrv_fetch_object($resultqry)) {
+                   array_push($items, $row);
+                }
+              
+                echo json_encode($items);
+           
+                break; 
  case 'delete':
        
  break; 

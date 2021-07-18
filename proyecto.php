@@ -14,7 +14,7 @@ require ('controlador/coneccion.php');
                 <input name="descripcionp" labelPosition="top" class="easyui-textbox" required="true" label="Descripcion (*) " style="width:35%" >
             </div>             
             <div style="margin-bottom:5px">
-                <select id="cc" label="Modalidad Proyecto (*)" labelPosition="top" style="width:15%" required="true" class="easyui-combobox"required="true" name="modalidadproyecto">
+                <select id="cc" label="Modalidad Proyecto (*)" labelPosition="top" style="width:15%" required="true" class="easyui-combobox"required="true" name="modalidaproyecto">
                 <option  selected="selected" ></option>
                 <option>PRESENCIAL</option>
                 <option>SEMIPRESENCIAL</option>
@@ -34,7 +34,7 @@ require ('controlador/coneccion.php');
             </div> 
                       
             <div style="margin-bottom:5px">
-                <input name="numerodelaresoluciones" labelPosition="top" class="easyui-textbox" required="true" label=" Numero Resolucion (*) " style="width:15%" >
+                <input name="numerodelaresolucion_CES" labelPosition="top" class="easyui-textbox" required="true" label=" Numero Resolucion (*) " style="width:15%" >
             </div> 
             <div style="margin-bottom:5px">
                 <input name="fecharesolucion" labelPosition="top"id="final" class="easyui-datebox"   data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha Resolucion (*)" style="width:15%" >
@@ -96,10 +96,10 @@ $query="SELECT * FROM proyecto";
             echo '<tr>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['codproyecto'].'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['descripcionp'].'</h6></font></td>';
-            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['modalidadproyecto'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['modalidaproyecto'].'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['fechaingresoproyecto']->format('Y-m-d').'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['nivel'].'</h6></font></td>';
-            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['numeroderesolucion'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['numerodelaresolucion_CES'].'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['fecharesolucion']->format('Y-m-d').'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['year'].'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['valor'].'</h6></font></td>';

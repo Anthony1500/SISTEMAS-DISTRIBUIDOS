@@ -85,8 +85,8 @@ $query="SELECT * FROM consultor";
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['edad'].'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['telefono'].'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['celular'].'</h6></font></td>';
-            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['titulo1'].'</h6></font></td>';
-            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['titulo2'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['titulosegundonivel'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['titulotercernivel'].'</h6></font></td>';
             echo '</tr>';           
         }
         

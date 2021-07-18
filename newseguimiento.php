@@ -17,7 +17,7 @@ require ('controlador/coneccion.php');
                 <input name="detalle" labelPosition="top" class="easyui-textbox" required="true" label=" Detalle (*) " style="width:25%" >
             </div>
             <div style="margin-bottom:5px">
-                <input name="porcentaje" labelPosition="top" class="easyui-numberbox" required="true" label=" Porcentaje (*)"  style="width:15%" >
+                <input name="porcentajeavance" labelPosition="top" class="easyui-numberbox" required="true" label=" Porcentaje (*)"  style="width:15%" >
             </div>
         
         <div style="margin-bottom:5px">
@@ -76,7 +76,7 @@ $query="SELECT * FROM seguimiento";
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['codseguimiento'].'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['fecha']->format('Y-m-d').'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['detalle'].'</h6></font></td>';
-            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['porcentaje'].'</h6></font></td>';
+            echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['porcentajeavance'].'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['estado'].'</h6></font></td>';
             echo '<td><font color="Blue"face="Comic Sans MS,arial"><h6 align="center">'.$row['codproyecto'].'</h6></font></td>';
             echo '</tr>';           

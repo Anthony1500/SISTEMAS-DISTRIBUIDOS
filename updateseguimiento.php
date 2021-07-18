@@ -1,22 +1,42 @@
 
-<?php
-require ('controlador/coneccion.php'); 
-if( isset($_GET["id"]))
-{ 
-    $id=$_GET["id"];
-    $sql = "SELECT * FROM propietario where prop_id='$id'";
-    $result = mysqli_query($con,$sql);
-     
-    $row = mysqli_fetch_assoc($result) ;
-}
 
-?>
-
-<div id="$id" class="easyui-panel" title="Datos Propietario" style="width:100%;height:100%; ">
-<form id="frmequipo" method="post"     style="margin:0;padding:20px 50px">
+<div id="p" class="easyui-panel" title="Ingreso de Seguimiento" style="width:100%;height:100%; ">
+<form id="frmpro" method="post"     style="margin:0;padding:20px 50px">
            
-<div style="margin-bottom:5px">
-                <input name="fecha" labelPosition="top" class="easyui-datebox" type=»text» value="<?php echo $row ['fecha']?>" data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha (*)" style="width:15%" >
+
+
+              
+<div  style="margin-bottom:5px">
+            <select  id="cmvdb"onClick="myNewFunction(event)" name ="codseguimiento"labelPosition="top"required="true" class="easyui-combobox" 
+            style="width:15%;"  data-options="
+                    url:'controlador/seguimiento.php?op=selectcombo1',
+                    method:'get',
+                    valueField:'codseguimiento',
+                    textField:'codseguimiento',
+                    panelHeight:'auto',
+                    label: 'Codigo Seguimiento (*)',
+                    labelWidth:'160px'
+                    ">   
+                    </select> 
+            </form>
+ 
+                    <?php
+require ('controlador/coneccion.php'); 
+ 
+ 
+$sql = "execute sp_buscarseguimiento 's1'";
+$result = sqlsrv_query($conn,$sql);
+ 
+$row = sqlsrv_fetch_array($result);
+
+
+?>           
+            
+           
+          
+            
+            <div style="margin-bottom:5px">
+                <input name="fecha" labelPosition="top" class="easyui-datebox" type=»text»  data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha (*)" style="width:15%" >
             </div>              
             <div style="margin-bottom:5px">
                 <input name="detalle" labelPosition="top" class="easyui-textbox"value="<?php echo $row ['detalle']?>" required="true" label=" Detalle (*) " style="width:25%" >
@@ -43,40 +63,54 @@ if( isset($_GET["id"]))
                     labelWidth:'160px'
                     ">               
             </select>
-            
-        
-         
-       
-
-            
-           
-            
-
-        </form>
+      </form>
    
+     
+
         <div style="text-align:center;padding:5px 0">
-        <a href="javascript:void(0)" id='btnSave' class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Guardar</a>
-        <a  href="main.php?pag=listapropietario" class="easyui-linkbutton" iconCls="icon-cancel" style="width:90px">Cancelar</a>
+        <a href="javascript:void(0)" id='btnSave' class="easyui-linkbutton c6" iconCls="icon-ok"  onclick="saveUser()" style="width:90px">Guardar</a>
+        
+
     </div>   
-    </div>
     
- 
+     
     <script type="text/javascript">
+    
+  
+
+
+$('#cmvdb').combobox({
+	onChange: function(param){
        
-       $('#cc').combobox({
-           
-           
-           panelHeight:'166',
-           
-           onSelect: function(rec)
-           {
-            
-           }
-       });
-      
+  var e = document.getElementById('cmvdb').value;
+  var inpCountry = e.options[e.selectedIndex];
+  if(inpCountry=='s1'){
+alert ("hola");
+  }
+		 
+	}
+});
+    function myformatter(date){
+            var y = date.getFullYear();
+            var m = date.getMonth()+1;
+            var d = date.getDate();
+            return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+        }
+        function myparser(s){
+            if (!s) return new Date();
+            var ss = (s.split('-'));
+            var y = parseInt(ss[0],10);
+            var m = parseInt(ss[1],10);
+            var d = parseInt(ss[2],10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+                return new Date(y,m-1,d);
+            } else {
+                return new Date();
+            }
+        }
         function saveUser(){              
-           $('#frmequipo').form('submit',{
-                url: 'controlador/usuario.php?op=update',
+           $('#frmpro').form('submit',{
+                url: 'controlador/seguimiento.php?op=insert',
                 onSubmit: function(){
                     var esvalido =  $(this).form('validate');
                     if( esvalido){
@@ -93,13 +127,11 @@ if( isset($_GET["id"]))
                    // console.log(result);                  
                    $.messager.show({
                             title: 'exito',
-                            msg: result
+                            msg: '¡se ha agregado con exito a la base!'
                         });
-                    window.location.href= 'main.php?pag=listapropietario';
+                        window.location.href= 'main.php?pag=newseguimiento';
                 }
             }); 
         }
         
-    </script>    
-    
- 
+    </script>

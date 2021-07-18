@@ -1,32 +1,20 @@
->
-            
-            <div style="margin-bottom:5px">
-                <input name="fecha" labelPosition="top" class="easyui-datebox" type=»text» value="<?php echo $row ['fecha']?>" data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha (*)" style="width:15%" >
-            </div>              
-            <div style="margin-bottom:5px">
-                <input name="detalle" labelPosition="top" class="easyui-textbox"value="<?php echo $row ['detalle']?>" required="true" label=" Detalle (*) " style="width:25%" >
-            </div>
-            <div style="margin-bottom:5px">
-                <input name="porcentaje" labelPosition="top" class="easyui-numberbox" required="true" label=" Porcentaje (*)"  style="width:15%" >
-            </div>
-        
-        <div style="margin-bottom:5px">
-                <input name="estado" labelPosition="top" class="easyui-textbox" required="true" label=" Estado (*) " style="width:25%" >
-            </div> 
-                      
-        
-            
-            <div  style="margin-bottom:5px">
-            <select id="codproyecto"  name ="codproyecto"labelPosition="top"required="true" class="easyui-combobox" 
+<div id="$id" class="easyui-panel" title="editar seguimiento" style="width:100%;height:100%; ">
+<form id="frmequipo" method="post"     style="margin:0;padding:20px 50px">
+  
+
+
+<div  style="margin-bottom:5px">
+            <select id="codseguimiento" value=combobox name ="codseguimiento"labelPosition="top"required="true" class="easyui-combobox" 
             style="width:15%;"  data-options="
-                    url:'controlador/seguimiento.php?op=selectcombo',
+                    url:'controlador/seguimiento.php?op=selectcombo1',
                     method:'get',
-                    valueField:'codproyecto',
-                    textField:'codproyecto',
+                    valueField:'codseguimiento',
+                    textField:'codseguimiento',
                     panelHeight:'auto',
-                    label: 'Codigo Proyecto (*)',
+                    label: 'Codigo Seguimiento (*)',
                     labelWidth:'160px'
-                    ">               
+                    ">    
+                 
             </select>
       </form>
    
@@ -40,10 +28,7 @@
     </div>
      
     <script type="text/javascript">
-       var optCarrera = document.getElementById("codseguimiento")
-optCarrera.onchange = function(){
-  alert(this.value);
-}
+     
        function limpiar(){
         document.getElementById("frmpro").reset();
        }
@@ -90,5 +75,10 @@ optCarrera.onchange = function(){
                 }
             }); 
         }
-        
+        function editriego(){
+            var row = $('#dg').datagrid('getSelected');
+            if (row){
+                window.location.href= 'main.php?pag=editriegos&id='+row.riego_id;
+            }
+        }
     </script>

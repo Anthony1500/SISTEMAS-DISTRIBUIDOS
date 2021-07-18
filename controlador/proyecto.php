@@ -26,17 +26,17 @@ switch ($op) {
                    
                 $codproyecto = $_POST['codproyecto']; 
                 $descripcionp = $_POST['descripcionp']; 
-                $modalidadproyecto = $_POST['modalidadproyecto']; 
+                $modalidaproyecto = $_POST['modalidaproyecto']; 
                 $fechaingresoproyecto = $_POST['fechaingresoproyecto']; 
                 $nivel = $_POST['nivel']; 
-                $numerodelaresoluciones = $_POST['numerodelaresoluciones']; 
+                $numerodelaresolucion_CES = $_POST['numerodelaresolucion_CES']; 
                 $fecharesolucion = $_POST['fecharesolucion']; 
                 $year = $_POST['year']; 
                 $valor = $_POST['valor']; 
                 $codcarrera = $_POST['codcarrera']; 
 
                 
-                $sql = "execute sp_insertarproyecto '$codproyecto','$descripcionp','$modalidadproyecto','$fechaingresoproyecto','$nivel','$numerodelaresoluciones','$fecharesolucion',$year,'$valor','$codcarrera'"; 
+                $sql = "execute sp_insertarproyecto '$codproyecto','$descripcionp','$modalidaproyecto','$fechaingresoproyecto','$nivel','$numerodelaresolucion_CES','$fecharesolucion',$year,'$valor','$codcarrera'"; 
                
                
 
