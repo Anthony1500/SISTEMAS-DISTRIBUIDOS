@@ -1,7 +1,7 @@
 
 <?php 
 
-$serverName = "DESKTOP-GI1RABS\BRYAN";
+$serverName = "JOHN";
 $db="Proyectos";
 
 $connectionInfo = array( "Database"=>$db);

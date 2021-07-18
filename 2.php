@@ -1,80 +1,112 @@
+<?php
+require ('controlador/coneccion.php'); 
+ ?>   
+         
+<div id="p" class="easyui-panel" title="Ingreso de Seguimiento" style="width:100%;height:100%; ">
+<form id="frmpro" method="post"     style="margin:0;padding:20px 50px">
+      
 
-<form method="post" action="test.php" name="contactform" id="contactform">
-    <div class="grid_6" id="register">
-    <center><h4>Required Information</h4></center>
-    <p>
-      <label for="name">Name:</label>
-      <input name="name" id="name" type="text" />
-    </p>
-    <p>
-      <label for="email">Your Email:</label>
-      <input name="email" id="email" type="text" />
-    </p>
-    <p>
-    <label for="trew">Contact Phone:</label>
-    <input name="txtAreaCode" id="txtAreaCode" style="width: 30px;" maxlength="3" value=""type="text">
-    <span style="color: rgb(255, 200, 46);">&nbsp;-&nbsp;</span>
-    <input name="txtPrefix" id="txtPrefix" style="width: 30px;" maxlength="3" value=""type="text">
-    <span style="color: rgb(255, 200, 46);">&nbsp;-&nbsp;</span>
-    <input name="txtPhone" id="txtPhone" style="width: 45px;" maxlength="4" value=""type="text">
-    <span style="color: rgb(255, 200, 46);">&nbsp;-&nbsp;</span>
-    <input name="txtPhoneExt" id="txtPhoneExt" style="width: 35px;" maxlength="10" value=""type="text">
-    ext.
-    </p>
-    <p>
-      <label for="zip">Zip Code:</label>
-      <input name="zip" id="zip" type="text" />
-    </p>
-    <p>
-      <label for="school">Name of School:</label>
-      <input name="school" id="school" type="text" />
-    </p>
-    <p>
-      <label for="title">Affiliation</label>
-      <select name="title" id="title">
-      <option selected="NULL">Please Select</option>
-      <option value="student">Student</option>
-      <option value="parent">Parent</option>
-      <option value="teacher">Teacher</option>
-      <option value="booster">Booster</option>
-      <option value="clubpres">Club President</option>
-      <option value="principal">Principal</option>
-      <option value="ptsa">PTSA</option>
-      </select>
-    </p>
-    </div>
-    <div class="grid_6" id="contactinfo">
-    <center><h4>Additional Information</h4></center>
-    <p>
-      <label for="color">School Colors:</label>
-      <input name="color" id="color" type="text" />
-    </p>
-    <p>
-      <label for="mascot">Mascot:</label>
-      <input name="mascot" id="mascot" type="text" />
-    </p>
-    <p>
-      <label for="tagline">Tagline/Motto:</label>
-      <input name="tagline" id="tagline" type="text" />
-    </p>
-    <p>
-      <label for="sbsize">Approximate Student Body Size:</label>
-      <input name="sbsize" id="sbsize" type="text" />
-    </p>
-    <p>
-      <label for="level">Interest Level:</label>
-      <select name="level" id="level">
-      <option value="1">Interested</option>
-      <option value="2">Slightly Interested</option>
-      <option value="3">Moderately Interested</option>
-      <option value="4">Highly Interested</option>
-      <option value="5">Extremely Interested</option>
-      </select>
-    </p>
-    <p>
-      <label for="verify">1 + 3 =</label>
-      <input name="verify" id="verify" class="small" type="text" />
-    </p>
-    <button class="fr" type="submit" id="submit">Send</button>
-  </form>
-  </div>
+
+              
+<div  style="margin-bottom:5px">
+            <select  id="cmvdb" name ="nombres"labelPosition="top"required="true"type=»text» class="easyui-combobox" 
+            style="width:15%;"  data-options="
+                    url:'controlador/seguimiento.php?op=selectcombo1',
+                    method:'get',
+                    valueField:'nombres',
+                    textField:'nombres',
+                    panelHeight:'auto',
+                    label: 'Codigo Seguimiento (*)',
+                    labelWidth:'160px'
+                    ">   
+                    </select> 
+                             
+          
+            <div style="margin-bottom:5px">
+                <input name="apellidos" id="apellidos" labelPosition="top" class="easyui-numberbox" required="true" label=" Porcentaje (*)"  style="width:15%" >
+            </div>
+        
+       
+      </form>
+            </form>
+            <div style="text-align:center;padding:5px 0">
+        <a href="javascript:void(0)"  class="easyui-linkbutton c6" iconCls="icon-ok" onclick="buscar()"  style="width:90px">Buscar</a>
+        
+
+    </div>   
+   
+    <script type="text/javascript">
+    
+    $('#cmvdb').combobox({
+      	onChange: function(param){
+              var id=$('#cmvdb').combobox('getValue');
+   $.ajax({
+    url: "controlador/user.php?op=selectcombo2", 
+    method: "post", 
+    
+    data: { "id":id},
+    
+   });
+}     
+});
+     $('#cmvdb').combobox({
+      	onChange: function(param){           
+      var id=$('#cmvdb').combobox('getValue');   
+       $.ajax ( {        
+       url: "controlador/user.php?op=selectcombo2",
+       type: 'post',
+       data: { "id":id},
+       dataType: 'JSON',
+       success: function(response){
+            var len = response.length;
+            for(var i=0; i<len; i++){                
+               ;
+               var apellidos1 = response[i].apellido;
+                     
+                
+
+                 
+               $("#apellido").val(apellido1);
+                 
+                 
+              
+                console.log(id);
+                location.reload();
+                
+                
+            }
+ 
+}
+});
+
+}
+});
+
+
+
+    function myformatter(date){
+            var y = date.getFullYear();
+            var m = date.getMonth()+1;
+            var d = date.getDate();
+            return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+        }
+        function myparser(s){
+            if (!s) return new Date();
+            var ss = (s.split('-'));
+            var y = parseInt(ss[0],10);
+            var m = parseInt(ss[1],10);
+            var d = parseInt(ss[2],10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+                return new Date(y,m-1,d);
+            } else {
+                return new Date();
+            }
+        }
+        function buscar(){              
+          
+                        window.location.href= 'main.php?pag=1';
+                }
+           
+        
+        
+    </script>

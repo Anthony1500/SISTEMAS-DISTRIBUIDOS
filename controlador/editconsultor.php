@@ -105,7 +105,10 @@ catch (Exception $e){ //usar logs
 
     break; 
 
+ case 'update':
+   
 
+ break;
  case 'selectcombo':
    
     $sql="sp_listacon ";
@@ -125,26 +128,24 @@ catch (Exception $e){ //usar logs
 
 
     break; 
-    case 'selectcombo2':
-                
-        $nombres = $_POST['id'];
-
-         $sql="execute sp_buscarcon '$nombres'";
-         $resultqry = sqlsrv_query($conn,$sql);
-         if (!$resultqry) {
-         
-         exit;
-         }
-         
-         $items=array();
-      
-         while($row = sqlsrv_fetch_object($resultqry)) {
-            array_push($items, $row);
-         }
+    case 'select':
        
-         echo json_encode($items);
-    
-         break; 
+       
+       
+            $resultqry = sqlsrv_query($con,"sp_buscarcon  'john'" );
+            if (!$resultqry) {
+            echo json_encode("Ocurrió un error en la consulta");
+            exit;
+            }
+            $result = array();
+            $items = array();  
+         
+            while($row = sqlsrv_fetch_object($resultqry)) {
+               array_push($items, $row);
+            }
+            $result["rows"] = $items;
+            echo json_encode($result);
+            break;
   
  case 'delete':
        
