@@ -79,7 +79,8 @@ catch (Exception $e){ //usar logs
             'status' => 0, 
             'msg' =>  '  Se produjeron algunos problemas. Inténtalo de nuevo.' 
         );          
-        if( !empty($_POST['nombres'])&& !empty($_POST['apellidos']) &&  !empty($_POST['direccion'])&&  !empty($_POST['correo'])&&  !empty($_POST['edad'])&&  !empty($_POST['telefono'])&&  !empty($_POST['celular'])&&  !empty($_POST['titulosegundonivel'])&&  !empty($_POST['titulotercernivel'])  ){ 
+        if( !empty($_POST['dni']) && !empty($_POST['nombres']) && !empty($_POST['apellidos']) &&  !empty($_POST['direccion'])&&  !empty($_POST['correo'])&&  !empty($_POST['edad'])&&  !empty($_POST['telefono'])&&  !empty($_POST['celular'])&&  !empty($_POST['titulosegundonivel'])&&  !empty($_POST['titulotercernivel'])  ){ 
+            $dni = $_POST['dni']; 
             $nombres = $_POST['nombres']; 
             $apellidos = $_POST['apellidos'];
             $direccion = $_POST['direccion']; 
@@ -90,7 +91,7 @@ catch (Exception $e){ //usar logs
             $titulosegundonivel = $_POST['titulosegundonivel']; 
             $titulotercernivel = $_POST['titulotercernivel']; 
         
-            $sql = "execute sp_actualizarcon  '$nombres', '$apellidos','$direccion','$correo','$edad','$telefono','$celular','$titulosegundonivel','$titulotercernivel'  "; 
+            $sql = "execute sp_actualizarcon  '$dni', '$nombres', '$apellidos','$direccion','$correo','$edad','$telefono','$celular','$titulosegundonivel','$titulotercernivel'  "; 
             $update = sqlsrv_query($conn,$sql); 
              
             if($update){ 
