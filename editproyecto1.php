@@ -56,12 +56,12 @@ if( isset($_GET["id"]))
             </div>             
             <div style="margin-bottom:5px">
                 <select id="cc"  label="Modalidad Proyecto (*)" labelPosition="top" style="width:15%" required="true" class="easyui-combobox"required="true" name="modalidaproyecto">
-                <option   value="" readonly=»readonly»   ><?php echo $row['modalidaproyecto']?></option>
+                <option   value="<?php echo $row['modalidaproyecto']?>" ><?php echo $row['modalidaproyecto']?></option>
                 <option>PRESENCIAL</option>
                 <option>SEMIPRESENCIAL</option>
                 <option>DISTANCIA</option>
                 <option>EN LINEA</option>
-                
+               
                 
             </select>
             </div> 
@@ -191,7 +191,7 @@ if( isset($_GET["id"]))
                             title: 'exito',
                             msg: '¡se ha agregado con exito a la base!'
                         });
-                       // window.location.href= 'main.php?pag=proyecto';
+                       window.location.href= 'main.php?pag=proyecto';
                 }
             }); 
         }
