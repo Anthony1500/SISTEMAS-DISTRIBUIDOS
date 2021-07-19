@@ -92,11 +92,7 @@
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Editar Facultad
                                     </a>
-<<<<<<< HEAD
                                     <a href="main.php?pag=editproyecto">
-=======
-                                    <a href="main.php?pag=1">
->>>>>>> 512e82eb8c9e5233336b42aba5780b52f825568e
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Editar Proyecto
                                     </a>

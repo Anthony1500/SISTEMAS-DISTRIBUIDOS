@@ -83,7 +83,7 @@ catch (Exception $e){ //usar logs
             'status' => 0, 
             'msg' =>  '  Se produjeron algunos problemas. Inténtalo de nuevo.' 
         );          
-        if(!empty($_POST['codproyecto'])&&!empty($_POST['descripcionp']) && !empty($_POST['modalidadproyecto'])&& !empty($_POST['fechaingresoproyecto'])&&!empty($_POST['nivel'])&&!empty($_POST['numerodelaresolucion_CES'])&&!empty($_POST['fecharesolucion'])&&!empty($_POST['year'])&&!empty($_POST['valor'])&&!empty($_POST['codcarrera'])){ 
+        if(!empty($_POST['codproyecto'])&&!empty($_POST['descripcionp']) && !empty($_POST['modalidaproyecto'])&& !empty($_POST['fechaingresoproyecto'])&&!empty($_POST['nivel'])&&!empty($_POST['numerodelaresolucion_CES'])&&!empty($_POST['fecharesolucion'])&&!empty($_POST['year'])&&!empty($_POST['valor'])&&!empty($_POST['codcarrera'])){ 
             $codproyecto = $_POST['codproyecto']; 
             $descripcionp = $_POST['descripcionp']; 
             $modalidaproyecto = $_POST['modalidaproyecto']; 
