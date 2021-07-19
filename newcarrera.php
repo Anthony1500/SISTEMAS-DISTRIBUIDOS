@@ -47,7 +47,7 @@
         <?php
 require ('controlador/coneccion.php'); 
 
-$query="sp_lc";
+$query="sp_listacarrera";
 
         $resultado=sqlsrv_query($conn, $query);
         //se desplegaran los resultados en la tabla

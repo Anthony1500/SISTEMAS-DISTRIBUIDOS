@@ -44,12 +44,18 @@ if( isset($_GET["id"]))
 <form id="frmpro" method="post"     style="margin:0;padding:20px 50px">
 
 
+            <div style="margin-bottom:5px">
+                <input name="codseguimiento" readonly=»readonly» labelPosition="top" class="easyui-textbox" Value="<?php echo $row['codseguimiento'] ?>" required="true" label="Codigo seguimiento (*) " style="width:15%" >
+            </div> 
+
+
+
 <div style="margin-bottom:5px">
                 <input name="fecha" id="fecha" labelPosition="top" Value="<?php echo $row['fecha']->format('Y-m-d'); ?>" class="easyui-datebox"   data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha (*)" style="width:15%" >
             </div>        
 
             <div style="margin-bottom:5px">
-                <input name="detalle" labelPosition="top"  Value="<?php echo $row['detalle'] ?>" class="easyui-textbox" required="true" label=" Apellidos (*) " style="width:25%" >
+                <input name="detalle" labelPosition="top"  Value="<?php echo $row['detalle'] ?>" class="easyui-textbox" required="true" label=" Detalle (*) " style="width:25%" >
             </div> 
         
         <div style="margin-bottom:5px">
@@ -74,7 +80,7 @@ if( isset($_GET["id"]))
                     ">
             
             
-        <option   value="<?php echo $row ['codproyecto']?>" > <?php echo $row ['codproyecto']?></option>
+                    <option   value="" ><?php echo $row['codproyecto']?></option>
 
         
    
@@ -109,7 +115,7 @@ function limpiar(){
 });    
             if (row){
                 window.location.href ='main.php?pag=updateseguimiento2&id='+row; 
-                window.location.href ='main.php?pag=updateseguimiento2&id='+row;  
+                
                
             }
         }
