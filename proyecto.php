@@ -7,7 +7,7 @@ require ('controlador/coneccion.php');
 
 
               
-            <div style="margin-bottom:5px">
+<div style="margin-bottom:5px">
                 <input name="codproyecto" labelPosition="top" class="easyui-textbox" required="true" label="Codigo Proyecto (*) " style="width:15%" >
             </div> 
             <div style="margin-bottom:5px">
@@ -25,9 +25,14 @@ require ('controlador/coneccion.php');
             </select>
             </div> 
 
-            <div style="margin-bottom:5px">
-                <input name="fechaingresoproyecto" labelPosition="top" id="inicial"class="easyui-datebox" type=»text»  data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha ingreso (*)" style="width:15%" >
-            </div>  
+           
+<div style="margin-bottom:5px" > 
+  <label for="title" id="title">Fecha Ingreso(<span style="color:red;">*</span>)</label> 
+  <input type="date" class="form-control date required" name="fechaingresoproyecto" id="fechaingresoproyecto" required="true"title="Fecha Ingreso"style="width:15%"onblur="myFunction() >
+  
+</div>
+
+
         
         <div style="margin-bottom:5px">
                 <input name="nivel" labelPosition="top" class="easyui-textbox" required="true" label=" Nivel (*) " style="width:15%" >
@@ -36,9 +41,11 @@ require ('controlador/coneccion.php');
             <div style="margin-bottom:5px">
                 <input name="numerodelaresolucion_CES" labelPosition="top" class="easyui-textbox" required="true" label=" Numero Resolucion (*) " style="width:15%" >
             </div> 
-            <div style="margin-bottom:5px">
-                <input name="fecharesolucion" labelPosition="top"id="final" class="easyui-datebox"   data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha Resolucion (*)" style="width:15%" >
-            </div>  
+            <div style="margin-bottom:5px" > 
+  <label for="title" id="title">Fecha Resolucion(<span style="color:red;">*</span>)</label> 
+  <input type="date" class="form-control date required" name="fecharesolucion" id="fecharesolucion" required="true"title="Fecha Resolucion"style="width:15%" onblur="myFunction()">
+  
+</div>
             <div style="margin-bottom:5px">
                 <input name="year" labelPosition="top" class="easyui-textbox" required="true" label=" Año (*) " style="width:15%" >
             </div> 
@@ -112,7 +119,20 @@ $query="SELECT * FROM proyecto";
 ?>
  
 
-    <script type="text/javascript">
+ <script type="text/javascript">
+   
+ 
+   function myFunction(){
+     var date = $('#fechaingresoproyecto').val();
+     var date1 = $('#fecharesolucion').val();
+     if(Date.parse(date)){
+       if(date > date1){
+         alert('La Fecha Resolucion  no puede ser menor a la Fecha Ingreso ');
+         $('#fecharesolucion').val("");
+       }
+     }
+   }
+   
        
        $('#cc').combobox({
            

@@ -61,7 +61,7 @@ catch (Exception $e){ //usar logs
         'status' => 0, 
         'msg' =>  '  Se produjeron algunos problemas. Inténtalo de nuevo.' 
     );          
-    if(!empty($_POST['codseguimiento'])&&!empty($_POST['fecha']) && !empty($_POST['detalle'])&& !empty($_POST['porcentaje'])&&!empty($_POST['estado'])&&!empty($_POST['codproyecto'])){ 
+    if(!empty($_POST['codseguimiento'])&&!empty($_POST['fecha']) && !empty($_POST['detalle'])&& !empty($_POST['porcentajeavance'])&&!empty($_POST['estado'])&&!empty($_POST['codproyecto'])){ 
                 $codseguimiento = $_POST['codseguimiento']; 
                 $fecha = $_POST['fecha'];   
                 $detalle = $_POST['detalle']; 
