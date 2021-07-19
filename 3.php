@@ -43,7 +43,7 @@ if( isset($_GET["id"]))
  <div id="p" class="easyui-panel" title="Editar  Consultor" style="width:100%;height:100%; ">
 <form id="frmpro" method="post"     style="margin:0;padding:20px 50px">
 <div style="margin-bottom:5px">
-                <input name="dni" readonly=»readonly»  Value="<?php echo $row['dni'] ?>" labelPosition="top" class="easyui-textbox" required="true" label="Dni " style="width:15%" >
+                <input name="dni" readonly=»readonly»  Value="<?php echo $row['dni'] ?>" labelPosition="top" class="easyui-textbox" required="true" label="Dni  (solo lectura)" style="width:15%" >
             </div> 
 
 <div style="margin-bottom:5px">

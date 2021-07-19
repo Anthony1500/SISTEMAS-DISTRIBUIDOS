@@ -50,27 +50,27 @@ if( isset($_GET["id"]))
 
 
 <div style="margin-bottom:5px">
-                <input name="codcarrera" readonly=»readonly»  Value="<?php echo $row['codcarrera'] ?>" labelPosition="top" class="easyui-textbox" required="true" label="Codigo Carrera (*)" style="width:50%" >
+                <input name="codcarrera" readonly=»readonly»  Value="<?php echo $row['codcarrera'] ?>" labelPosition="top" class="easyui-textbox" required="true" label="Codigo Carrera  (solo lectura)" style="width:15%" >
             </div> 
             <div style="margin-bottom:5px">
-                <input name="nombrecarrera"  Value="<?php echo $row['nombrecarrera'] ?>" labelPosition="top" class="easyui-textbox" required="true" label="Nombre Carrera (*)" style="width:50%" >
+                <input name="nombrecarrera"  Value="<?php echo $row['nombrecarrera'] ?>" labelPosition="top" class="easyui-textbox" required="true" label="Nombre Carrera (*)" style="width:25%" >
             </div> 
             <div style="margin-bottom:5px">
-                <input name="campoamplio"  Value="<?php echo $row['campoamplio'] ?>" labelPosition="top" class="easyui-textbox" required="true" label="Campo Amplio (*)" style="width:50%" >
+                <input name="campoamplio"  Value="<?php echo $row['campoamplio'] ?>" labelPosition="top" class="easyui-textbox" required="true" label="Campo Amplio (*)" style="width:25%" >
             </div>              
             <div style="margin-bottom:5px">
-                <input name="campodetallado"  Value="<?php echo $row['campodetallado'] ?>" labelPosition="top" class="easyui-textbox" required="true" label="Campo Detallado (*)" style="width:50%" >
+                <input name="campodetallado"  Value="<?php echo $row['campodetallado'] ?>" labelPosition="top" class="easyui-textbox" required="true" label="Campo Detallado (*)" style="width:25%" >
             </div>
             
                       
             <div style="margin-bottom:5px">
-                <input name="campoespecifico" Value="<?php echo $row['campoespecifico'] ?>"  labelPosition="top" class="easyui-textbox" required="true" label="Campo Especifico (*)" style="width:50%" >
+                <input name="campoespecifico" Value="<?php echo $row['campoespecifico'] ?>"  labelPosition="top" class="easyui-textbox" required="true" label="Campo Especifico (*)" style="width:25%" >
             </div>
 
             
     
             <div  style="margin-bottom:5px">
-            <select  id="codfacultad"   Value="<?php echo $row['codfacultad'] ?>"  name="codfacultad" labelPosition="top" class="easyui-combobox" name="dept"   value="true" label="Cod Proyecto :"  style="width:15%"
+            <select  id="codfacultad"   Value="<?php echo $row['codfacultad'] ?>"  name="codfacultad" labelPosition="top" class="easyui-combobox" name="dept"   value="true" label="Cod Proyecto :"  style="width:25%"
             data-options="
                     url:'controlador/editcare.php?op=selectcombo',
                     method:'get',
