@@ -127,7 +127,7 @@ function limpiar(){
                             title: 'exito',
                             msg: '¡se ha agregado con exito a la base!'
                         });
-                        window.location.href= 'main.php?pag=newconsultor';
+                      //  window.location.href= 'main.php?pag=newconsultor';
                 }
             }); 
         }

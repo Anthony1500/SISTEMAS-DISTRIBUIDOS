@@ -4,7 +4,7 @@ require ('controlador/coneccion.php');
 if( isset($_GET["id"]))
 { 
     $id=$_GET["id"];
-    $sql = " sp_buscarrera '$id' ";
+    $sql = " sp_buscarproyecto '$id' ";
     $resultado = sqlsrv_query($conn,$sql);
     $row=sqlsrv_fetch_array($resultado);
   
@@ -15,15 +15,14 @@ if( isset($_GET["id"]))
            
 
 <div  style="margin-bottom:5px">
-            <select id="yourid"  name ="nombrecarrera"  labelPosition="top"required="true" class="easyui-combobox" 
+            <select id="yourid"  name ="codproyecto"  labelPosition="top"required="true" class="easyui-combobox" 
             style="width:30%;"  data-options="
-                    url:'controlador/editcare.php?op=selectcombo',
+                    url:'controlador/p.php?op=selectcombo',
                     method:'get',
-                    valueField:'nombrecarrera',
-                    
-                    textField:'nombrecarrera',
+                    valueField:'codproyecto',
+                    textField:'codproyecto',
                     panelHeight:'auto',
-                    label: 'Nombre de la carrera(*)',
+                    label: 'Codigo del Proyecto(*)',
                     labelWidth:'160px'
                     ">               
             </select>
@@ -66,7 +65,7 @@ function limpiar(){
 	}
 });    
             if (row){
-                window.location.href ='main.php?pag=editcarrera1&id='+row;  
+                window.location.href ='main.php?pag=editproyecto1&id='+row;  
                
             }
         }
