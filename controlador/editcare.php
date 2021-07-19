@@ -74,45 +74,42 @@ catch (Exception $e){ //usar logs
   
     echo json_encode($items);
     break; 
+
+
+
+
  case 'update':
     $response = array( 
-            'status' => 0, 
-            'msg' =>  '  Se produjeron algunos problemas. Inténtalo de nuevo.' 
-        );          
-        if( !empty($_POST['dni']) && !empty($_POST['nombres']) && !empty($_POST['apellidos']) &&  !empty($_POST['direccion'])&&  !empty($_POST['correo'])&&  !empty($_POST['edad'])&&  !empty($_POST['telefono'])&&  !empty($_POST['celular'])&&  !empty($_POST['titulosegundonivel'])&&  !empty($_POST['titulotercernivel'])  ){ 
-            $dni = $_POST['dni']; 
-            $nombres = $_POST['nombres']; 
-            $apellidos = $_POST['apellidos'];
-            $direccion = $_POST['direccion']; 
-            $correo = $_POST['correo']; 
-            $edad = $_POST['edad']; 
-            $telefono = $_POST['telefono']; 
-            $celular = $_POST['celular']; 
-            $titulosegundonivel = $_POST['titulosegundonivel']; 
-            $titulotercernivel = $_POST['titulotercernivel']; 
+        'status' => 0, 
+        'msg' =>  '  Se produjeron algunos problemas. Inténtalo de nuevo.' 
+    ); 
+    
+    if(!empty($_POST['codcarrera'])&&!empty($_POST['nombrecarrera']) && !empty($_POST['campoamplio'])&& !empty($_POST['campodetallado'])&&!empty($_POST['campoespecifico'])&& !empty($_POST['codfacultad'])){ 
+        $codcarrera = $_POST['codcarrera']; 
+        $nombrecarrera = $_POST['nombrecarrera']; 
+        $campoamplio = $_POST['campoamplio'];
+        $campodetallado = $_POST['campodetallado']; 
+        $campoespecifico = $_POST['campoespecifico']; 
+        $codfacultad = $_POST['codfacultad']; 
         
-            $sql = "execute sp_actualizarcon  '$dni', '$nombres', '$apellidos','$direccion','$correo','$edad','$telefono','$celular','$titulosegundonivel','$titulotercernivel'  "; 
-            $update = sqlsrv_query($conn,$sql); 
-             
-            if($update){ 
-                $response['status'] = 1; 
-                $response['msg'] = '¡Los datos del usuario se han actualizado con éxito!'; 
-            } 
-        }else{ 
-            $response['msg'] = 'Por favor complete todos los campos obligatorios.'; 
-        } 
+    
+        $sql = "execute sp_actualizacarrera  '$codcarrera', '$nombrecarrera', '$campoamplio','$campodetallado','$campoespecifico','$codfacultad'  "; 
+        $update = sqlsrv_query($conn,$sql); 
          
-        echo json_encode($response); 
+        if($update){ 
+            $response['status'] = 1; 
+            $response['msg'] = '¡Los datos del usuario se han actualizado con éxito!'; 
+        } 
+    }else{ 
+        $response['msg'] = 'Por favor complete todos los campos obligatorios.'; 
+    } 
+     
+    echo json_encode($response); 
 
-    break; 
-
- case 'update':
-   
-
- break;
+break; 
  case 'selectcombo':
    
-    $sql="sp_listacon ";
+    $sql="  sp_listacarrera ";
     $resultqry = sqlsrv_query($conn,$sql);
     if (!$resultqry) {
     

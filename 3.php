@@ -21,7 +21,7 @@ if( isset($_GET["id"]))
                     valueField:'nombres',
                     textField:'nombres',
                     panelHeight:'auto',
-                    label: 'Codigo Proyecto (*)',
+                    label: 'Nombre consultor (*)',
                     labelWidth:'160px'
                     ">               
             </select>

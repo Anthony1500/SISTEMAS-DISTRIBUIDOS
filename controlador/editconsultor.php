@@ -106,10 +106,7 @@ catch (Exception $e){ //usar logs
 
     break; 
 
- case 'update':
-   
-
- break;
+ 
  case 'selectcombo':
    
     $sql="sp_listacon ";

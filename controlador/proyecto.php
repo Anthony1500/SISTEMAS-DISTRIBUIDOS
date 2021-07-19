@@ -64,8 +64,30 @@ catch (Exception $e){ //usar logs
    
 
  break;
+
+ case 'selectcombo3':
+    $sql=" sp_listaproyecto ";
+    $resultqry = sqlsrv_query($conn,$sql);
+    if (!$resultqry) {
+    
+    exit;
+    }
+    
+    $items=array();
+ 
+    while($row = sqlsrv_fetch_object($resultqry)) {
+       array_push($items, $row);
+    }
+  
+    echo json_encode($items);
+    break; 
+  
+ case 'delete':
+       
+ break; 
+
  case 'selectcombo':
-    $sql="SELECT codcarrera FROM carrera";
+    $sql="sp_listacarrera";
     $resultqry = sqlsrv_query($conn,$sql);
     if (!$resultqry) {
     

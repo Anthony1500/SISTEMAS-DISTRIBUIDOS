@@ -1,9 +1,10 @@
+
 <?php
 require ('controlador/coneccion.php'); 
 if( isset($_GET["id"]))
 { 
     $id=$_GET["id"];
-    $sql = " sp_buscarcon '$id' ";
+    $sql = " sp_buscarrera '$id' ";
     $resultado = sqlsrv_query($conn,$sql);
     $row=sqlsrv_fetch_array($resultado);
   
@@ -14,14 +15,15 @@ if( isset($_GET["id"]))
            
 
 <div  style="margin-bottom:5px">
-            <select id="codfacultad"  name ="codfacultad"  labelPosition="top"required="true" class="easyui-combobox" 
+            <select id="yourid"  name ="nombrecarrera"  labelPosition="top"required="true" class="easyui-combobox" 
             style="width:30%;"  data-options="
-                    url:'controlador/carrera.php?op=selectcombo',
+                    url:'controlador/editcare.php?op=selectcombo',
                     method:'get',
-                    valueField:'codfacultad',
-                    textField:'codfacultad',
+                    valueField:'nombrecarrera',
+                    
+                    textField:'nombrecarrera',
                     panelHeight:'auto',
-                    label: 'Codigo Facultad (*)',
+                    label: 'Nombre de la carrera(*)',
                     labelWidth:'160px'
                     ">               
             </select>
@@ -39,6 +41,10 @@ if( isset($_GET["id"]))
     </div>   
     </div>
     <p></p>
+
+
+
+
           
    
 
@@ -60,7 +66,7 @@ function limpiar(){
 	}
 });    
             if (row){
-                window.location.href ='main.php?pag=3&id='+row;  
+                window.location.href ='main.php?pag=editcarrera1&id='+row;  
                
             }
         }
