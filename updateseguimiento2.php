@@ -45,7 +45,7 @@ if( isset($_GET["id"]))
 
 
             <div style="margin-bottom:5px">
-                <input name="codseguimiento" readonly=»readonly» labelPosition="top" class="easyui-textbox" Value="<?php echo $row['codseguimiento'] ?>" required="true" label="Codigo seguimiento (*) " style="width:15%" >
+                <input name="codseguimiento" readonly=»readonly» labelPosition="top" class="easyui-textbox" Value="<?php echo $row['codseguimiento'] ?>" required="true" label="Codigo seguimiento (solo lectura) " style="width:15%" >
             </div> 
 
 
