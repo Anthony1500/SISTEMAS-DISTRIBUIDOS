@@ -3,32 +3,29 @@ require ('controlador/coneccion.php');
 if( isset($_GET["id"]))
 { 
     $id=$_GET["id"];
-    $sql = " sp_buscarseguimiento '$id' ";
+    $sql = " sp_buscarfacultad '$id' ";
     $resultado = sqlsrv_query($conn,$sql);
     $row=sqlsrv_fetch_array($resultado);
   
 }
 ?>
-<div id="p" class="easyui-panel" title="Ingreso de Consultor" style="width:100%;height:100%; ">
+<div id="p" class="easyui-panel" title="Buscar Facultad" style="width:100%;height:100%; ">
 <form id="frm" method="post"     style="margin:0;padding:20px 50px">
            
 
-            <div  style="margin-bottom:5px">
-            <select id="yourid"   name ="codseguimiento"labelPosition="top"required="true" class="easyui-combobox" 
+<div  style="margin-bottom:5px">
+            <select id="yourid"   name ="codfacultad"labelPosition="top"required="true" class="easyui-combobox" 
             style="width:15%;"  data-options="
-                    url:'controlador/seguimiento.php?op=selectcombo1',
+                    url:'controlador/facultad.php?op=selectcombo1',
                     method:'get',
-                    valueField:'codseguimiento',
-                    textField:'codseguimiento',
+                    valueField:'codfacultad',
+                    textField:'nombrefacultad',
                     panelHeight:'auto',
-                    label: 'Codigo Seguimiento(*)',
+                    label: 'Codigo Facultad (*)',
                     labelWidth:'160px'
-                    ">               
+                    ">                
             </select>
             
-        
-
-
 
   
       </form>
@@ -40,55 +37,28 @@ if( isset($_GET["id"]))
     </div>
     <p></p>
 
- <div id="p" class="easyui-panel" title="Editar  Seguimiento" style="width:100%;height:100%; ">
+ <div id="p" class="easyui-panel" title="Editar  Proyecto" style="width:100%;height:100%; ">
 <form id="frmpro" method="post"     style="margin:0;padding:20px 50px">
 
-
             <div style="margin-bottom:5px">
-                <input name="codseguimiento" readonly=»readonly» labelPosition="top" class="easyui-textbox" Value="<?php echo $row['codseguimiento'] ?>" required="true" label="Codigo seguimiento (solo lectura) " style="width:15%" >
+            <label for="title" id="title">Codigo Facultad(<span style="color: red;">*</span>)</label><p>
+                <input name="codfacultad" readonly=»readonly»  Value="<?php echo $row['codfacultad'] ?>" labelPosition="top" class="easyui-textbox" required="true"  style="width:35%" >
             </div> 
-
-
-
-<div style="margin-bottom:5px">
-                <input name="fecha" id="fecha" labelPosition="top" Value="<?php echo $row['fecha']->format('Y-m-d'); ?>" class="easyui-datebox"   data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha (*)" style="width:15%" >
-            </div>        
-
             <div style="margin-bottom:5px">
-                <input name="detalle" labelPosition="top"  Value="<?php echo $row['detalle'] ?>" class="easyui-textbox" required="true" label=" Detalle (*) " style="width:25%" >
-            </div> 
+            <label for="title" id="title">Descripcion(<span style="color: red;">*</span>)</label><p>
+                <input name="nombrefacultad" Value="<?php echo $row['nombrefacultad'] ?>" labelPosition="top" class="easyui-textbox" required="true" style="width:35%" >
+            </div>             
+
         
         <div style="margin-bottom:5px">
-                <input name="porcentajeavance" Value="<?php echo $row['porcentajeavance'] ?>" labelPosition="top" class="easyui-textbox" required="true" label=" Direccion (*) " style="width:25%" >
+        <label for="title" id="title">Decano(<span style="color: red;">*</span>)</label><p>
+                <input name="decano" labelPosition="top" Value="<?php echo $row['decano'] ?>" class="easyui-textbox" required="true"  style="width:35%" >
             </div> 
+                      
             <div style="margin-bottom:5px">
-                <input name="estado" Value="<?php echo $row['estado'] ?>" labelPosition="top" class="easyui-textbox" required="true" label=" Correo (*) " style="width:25%" >
+            <label for="title" id="title">Lugar (<span style="color: red;">*</span>)</label><p>
+                <input name="lugar" Value="<?php echo $row['lugar'] ?>" labelPosition="top" class="easyui-textbox" required="true"  style="width:35%" >
             </div> 
-            
-        
-
-            <div  style="margin-bottom:5px">
-            <select id="codproyecto" name="codproyecto" labelPosition="top" class="easyui-combobox" name="dept"   value="true" label="Cod Proyecto :"  style="width:15%"
-            data-options="
-                    url:'controlador/seguimiento.php?op=selectcombo',
-                    method:'get',
-                    valueField:'codproyecto',
-                    textField:'codproyecto',
-                    panelHeight:'auto',
-                    label: 'Codigo Proyecto (*)',
-                    labelWidth:'160px'
-                    ">
-            
-            
-                    <option   value="" ><?php echo $row['codproyecto']?></option>
-
-        
-   
-         </select>
-         
-        </div>
-
-         
 
            
            
@@ -104,7 +74,7 @@ if( isset($_GET["id"]))
     <script type="text/javascript">
 
 function limpiar(){
-        document.getElementById("frmpro").reset();
+        document.getElementById("frm").reset();
        }
       
         function editUser(){ 
@@ -114,8 +84,8 @@ function limpiar(){
 	}
 });    
             if (row){
-                window.location.href ='main.php?pag=updateseguimiento2&id='+row; 
-                
+                window.location.href ='main.php?pag=updatefacultad2&id='+row; 
+                window.location.href ='main.php?pag=updatefacultad2&id='+row;  
                
             }
         }
@@ -139,7 +109,7 @@ function limpiar(){
         }
         function saveUser(){              
            $('#frmpro').form('submit',{
-                url: 'controlador/seguimiento.php?op=update',
+                url: 'controlador/facultad.php?op=update',
                 onSubmit: function(){
                     var esvalido =  $(this).form('validate');
                     if( esvalido){
@@ -158,7 +128,7 @@ function limpiar(){
                             title: 'exito',
                             msg: '¡se ha agregado con exito a la base!'
                         });
-                    window.location.href= 'main.php?pag=newseguimiento';
+                        window.location.href= 'main.php?pag=newfacultad';
                 }
             }); 
         }

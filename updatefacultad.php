@@ -3,27 +3,28 @@ require ('controlador/coneccion.php');
 if( isset($_GET["id"]))
 { 
     $id=$_GET["id"];
-    $sql = " sp_buscarseguimiento '$id' ";
+    $sql = " sp_buscarfacultad'$id' ";
     $resultado = sqlsrv_query($conn,$sql);
     $row=sqlsrv_fetch_array($resultado);
   
 }
 ?>
-<div id="p" class="easyui-panel" title="Ingreso Seguimiento" style="width:100%;height:100%; ">
+<div id="p" class="easyui-panel" title="Buscar Proyecto" style="width:100%;height:100%; ">
 <form id="frm" method="post"     style="margin:0;padding:20px 50px">
            
 
             <div  style="margin-bottom:5px">
-            <select id="yourid"   name ="codseguimiento"labelPosition="top"required="true" class="easyui-combobox" 
+            <select id="yourid"   name ="codfacultad"labelPosition="top"required="true" class="easyui-combobox" 
             style="width:15%;"  data-options="
-                    url:'controlador/seguimiento.php?op=selectcombo1',
+                    url:'controlador/facultad.php?op=selectcombo1',
                     method:'get',
-                    valueField:'codseguimiento',
-                    textField:'codseguimiento',
+                    valueField:'codfacultad',
+                    textField:'nombrefacultad',
                     panelHeight:'auto',
-                    label: 'Codigo Seguimiento (*)',
+                    label: 'Nombre Facultad (*)',
                     labelWidth:'160px'
-                    ">               
+                    ">   
+        
             </select>
             
         
@@ -34,7 +35,7 @@ if( isset($_GET["id"]))
       </form>
    
         <div style="text-align:center;padding:5px 0">
-        <a href="javascript:void(0)" id='btnSave' class="easyui-linkbutton c6" iconCls="icon-ok"  onclick="editUser()" style="width:90px">BUSCAR</a>
+        <a href="javascript:void(0)" id='btnSave' class="easyui-linkbutton c6" iconCls="icon-search"  onclick="editUser()" style="width:90px">BUSCAR</a>
         
     </div>   
     </div>
@@ -50,17 +51,17 @@ if( isset($_GET["id"]))
     <script type="text/javascript">
 
 function limpiar(){
-        document.getElementById("frmpro").reset();
+        document.getElementById("frm").reset();
        }
       
-        function buscar(){ 
+        function editUser(){ 
             var row =  $('#yourid').combobox('getValue',{
 	onChange: function(param){
 
 	}
 });    
             if (row){
-                window.location.href ='main.php?pag=updateseguimiento2&id='+row;  
+                window.location.href ='main.php?pag=updatefacultad2&id='+row;  
                
             }
         }
@@ -85,7 +86,7 @@ function limpiar(){
                             title: 'exito',
                             msg: '¡se ha agregado con exito a la base!'
                         });
-                        window.location.href= 'main.php?pag=newlist';
+                        window.location.href= 'main.php?pag=newfacultad';
                 }
             }); 
         }

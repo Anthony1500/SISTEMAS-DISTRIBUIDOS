@@ -88,7 +88,7 @@ if( $conn ) {
 			 echo "Conexión establecida.<br/>";
 			 header("location: main.php") ;
 		}else{
-		 echo '<script language="javascript">alert("El Usuario o Contraseña no Existe");</script>'; 
+		 echo '<script language="javascript">alert("El Usuario ingresado no Existe");</script>'; 
 			 die( print_r( sqlsrv_errors(), true));
 		}
 

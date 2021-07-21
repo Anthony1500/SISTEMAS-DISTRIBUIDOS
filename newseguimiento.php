@@ -10,14 +10,16 @@ require ('controlador/coneccion.php');
             <div style="margin-bottom:5px">
                 <input name="codseguimiento" labelPosition="top" class="easyui-textbox" required="true" label="Codigo seguimiento (*) " style="width:15%" >
             </div> 
-            <div style="margin-bottom:5px">
-                <input name="fecha" labelPosition="top" class="easyui-datebox" type=»text»  data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha (*)" style="width:15%" >
-            </div>              
+            <div style="margin-bottom:5px" > 
+  <label for="title" id="title">Fecha (<span style="color:red;">*</span>)</label> 
+  <input type="date" class="form-control date required" name="fecha" id="fecha" required="true"title="Fecha Ingreso"style="width:15%"onblur="myFunction()" >
+  
+</div>             
             <div style="margin-bottom:5px">
                 <input name="detalle" labelPosition="top" class="easyui-textbox" required="true" label=" Detalle (*) " style="width:25%" >
             </div>
             <div style="margin-bottom:5px">
-                <input name="porcentajeavance" labelPosition="top" class="easyui-numberbox" required="true" label=" Porcentaje (*)"  style="width:15%" >
+                <input name="porcentajeavance" labelPosition="top"  class="easyui-numberbox" required="true" label=" Porcentaje (*)" min='0' max='100' style="width:15%"onblur="verificar()" >
             </div>
         
         <div style="margin-bottom:5px">
@@ -98,7 +100,31 @@ $query="SELECT * FROM seguimiento";
 
  
     <script type="text/javascript">
-       
+    
+ 
+       var myDate = $('#fecha');
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1;
+var yyyy = today.getFullYear();
+if(dd < 10)
+  dd = '0' + dd;
+
+if(mm < 10)
+  mm = '0' + mm;
+
+today = yyyy + '-' + mm + '-' + dd;
+myDate.attr("max", today);
+
+function myFunction(){
+  var date = myDate.val();
+  if(Date.parse(date)){
+    if(date > today){
+      alert('La fecha no puede ser mayor a la actual');
+      myDate.val("");
+    }
+  }
+}
        function limpiar(){
         document.getElementById("frmpro").reset();
        }

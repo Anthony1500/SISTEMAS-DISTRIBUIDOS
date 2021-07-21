@@ -82,14 +82,14 @@ switch ($op) {
         'status' => 0, 
         'msg' =>  '  Se produjeron algunos problemas. Inténtalo de nuevo.' 
     );          
-    if(!empty($_POST['cod_log'])&&!empty($_POST['nombre']) && !empty($_POST['apellido'])&& !empty($_POST['usuario'])&&!empty($_POST['contraseña'])){ 
-                $cod_log = $_POST['cod_log']; 
-                $nombre = $_POST['nombre'];   
-                $apellido = $_POST['apellido']; 
-                $usuario = $_POST['usuario'];   
-                $contraseña = $_POST['contraseña']; 
-                $sql = "UPDATE login SET  nombre='$nombre',apellido='$apellido',usuario='$usuario',contraseña='$contraseña' WHERE cod_log ='$cod_log'";
-               $update = mysqli_query($con,$sql);
+    if(!empty($_POST['codfacultad'])&&!empty($_POST['nombrefacultad']) && !empty($_POST['decano'])&& !empty($_POST['lugar'])){ 
+                $codfacultad = $_POST['codfacultad']; 
+                $nombrefacultad = $_POST['nombrefacultad'];   
+                $decano = $_POST['decano']; 
+                $lugar= $_POST['lugar'];   
+                
+                $sql = "execute sp_actualizarfacultad '$codfacultad','$nombrefacultad','$decano','$lugar'"; 
+               $update = sqlsrv_query($conn,$sql);
                  
                 if($update){ 
                     $response['status'] = 1; 
@@ -102,6 +102,22 @@ switch ($op) {
             echo json_encode($response); 
 
  break; 
+ case 'selectcombo1':
+    $sql="sp_listafacultad";
+    $resultqry = sqlsrv_query($conn,$sql);
+    if (!$resultqry) {
+    
+    exit;
+    }
+    
+    $items=array();
+ 
+    while($row = sqlsrv_fetch_object($resultqry)) {
+       array_push($items, $row);
+    }
+  
+    echo json_encode($items);
+    break; 
  case 'selectcombo':
     $resultqry = pg_query($dbconn, 'SELECT * FROM usuario ' );
     if (!$resultqry) {
