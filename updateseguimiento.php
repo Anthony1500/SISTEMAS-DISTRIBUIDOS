@@ -34,7 +34,7 @@ if( isset($_GET["id"]))
       </form>
    
         <div style="text-align:center;padding:5px 0">
-        <a href="javascript:void(0)" id='btnSave' class="easyui-linkbutton c6" iconCls="icon-ok"  onclick="editUser()" style="width:90px">BUSCAR</a>
+        <a href="javascript:void(0)" id='btnSave' class="easyui-linkbutton c6" iconCls="icon-ok"  onclick="buscar()" style="width:90px">BUSCAR</a>
         
     </div>   
     </div>
