@@ -135,10 +135,13 @@ $query="sp_listaproyecto";
      var date = $('#fechaingresoproyecto').val();
      var date1 = $('#fecharesolucion').val();
      if(Date.parse(date)){
-       if(date > date1){
+        if ($('#fecharesolucion').text().length>=0) {
+            if(date > date1){
          alert('La Fecha Resolucion  no puede ser menor a la Fecha Ingreso ');
          $('#fecharesolucion').val("");
        }
+    }
+       
      }
    }
    
