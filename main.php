@@ -125,6 +125,15 @@
                         <i class="metismenu-icon pe-7s-display2"></i>
                         Reporte Seguimiento
                     </a>
+                    <a href="main.php?pag=reporteseguiporproyecto">
+                        <i class="metismenu-icon pe-7s-display2"></i>
+                        Reporte Seguimiento por Proyecto
+                    </a>
+                    <a href="main.php?pag=reportefechasseguimiento">
+                        <i class="metismenu-icon pe-7s-display2"></i>
+                        Reporte Fechas Seguimiento 
+                    </a>
+                   
                     <a>
                         <i></i>
 

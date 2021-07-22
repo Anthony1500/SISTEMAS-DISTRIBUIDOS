@@ -1,15 +1,52 @@
+
+<div id="p" class="easyui-panel" title="Reporte Seguimiento por Fechas" style="width:100%;height:100%; ">
+<form id="frm" method="post"     style="margin:0;padding:20px 50px">
+           
+
+<div style="margin-bottom:5px" > 
+  <label for="title" id="title">Fecha Inicial(<span style="color:red;">*</span>)</label> 
+  <input type="date"   class="form-control date required"  id="inicial" required="true"title="Fecha Inicial"style="width:15%"onblur="myFunction()" >
+  
+</div>
+<div style="margin-bottom:5px" > 
+  <label for="title" id="title">Fecha Final(<span style="color:red;">*</span>)</label> 
+  <input type="date" class="form-control date required"  id="final" required="true"title="Fecha Final"style="width:15%"onblur="myFunction()" >
+  
+</div>
+        
+
+
+
+  
+      </form>
+      <div style="text-align:center;padding:5px 0">
+        <a href="javascript:void(0)" id='btnSave' class="easyui-linkbutton c6" iconCls="icon-ok"  onclick="editUser()" style="width:90px">BUSCAR</a>
+        
+    </div>   
+   
+
+
+
+
 <table id="dg" title="Reporte Seguimineto por Proyecto" class="easyui-datagrid" style="width:100%;height:auto; margin:10px;">
            
 
 
-
+<script>
+    var $f1= "<?php  echo $_GET["f1"] ?>";
+    var   $f2="<?php echo $_GET["f2"] ?>";                    
+    </script> 
         <?php
         
 require ('controlador/coneccion.php'); 
 
-$query="sp_listaseguimiento";
 
-        $resultado=sqlsrv_query($conn, $query);
+   
+       $f1=$_GET["f1"];
+       $f2=$_GET["f2"];
+       
+       $sql = "execute sp_fechasseguimiento '$f1','$f2'";
+       $resultado = sqlsrv_query($conn,$sql);
         //se desplegaran los resultados en la tabla
         //<a  href='main.php?pag=newconsultor' class="easyui-linkbutton" onclick="limpiar()" iconCls="icon-remove" style="width:90px">Limpiar</a>
 
@@ -18,7 +55,7 @@ $query="sp_listaseguimiento";
         echo "<table border=2 align=center>";
         echo "";
         echo "";
-        echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  style="text-align: center">'.'<h3> LISTA SEGUIMIENTO</h3>'."</span>";
+        echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  style="text-align: center">'.'<h3> LISTA SEGUIMIENTO POR RANGO DE FECHAS</h3>'."</span>";
         echo "";
         echo "<tr>";
         echo '<th><font color="Black"face="Comic Sans MS,arial"><h6 align="center">'."Codigo Seguimiento".'</h6></font></th>';
@@ -46,33 +83,24 @@ $query="sp_listaseguimiento";
 <br> <br>
 
 
-<table class="table table-bordered"style="width:30%;margin-left:auto;margin-right:auto;">
-<br> <br>
- <thead >
- <tr>
- <th>Nombre</th>
- 
- <th >Reporte en Excel</th >
- </tr>
- </thead>
- <tbody>
- <tr >
- <td style = "text-transform:uppercase;"><p class="thick"> Descargar reporte Seguimiento</p></td>
- 
- <td style="text-align: center"><a  href="excelseguimiento.php" class="btn btn-success" toggle="tooltip"title="Da clic aquí para descargar el reporte." ><img icon="68" src="./imagenes/excel.png"  /></a></td>
- </tr>
- <tr>
- 
- </tbody>
- </table>
 
- 
-</div>
-
-</body>
-</html>         
-
-</table> 
+<script type="text/javascript">
+ function editUser(){ 
+            
+   
+     var row = $('#inicial').val();
+     var row1 = $('#final').val();
+     
+       
+   
+     window.location.href ='main.php?pag=fechasseguimiento&f1='+row+'&f2='+row1;
+              
+               
+            
+        }
+        
+   
+            </script>       
 <style type="text/css">
   p.thick {
     
