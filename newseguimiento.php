@@ -57,7 +57,7 @@ require ('controlador/coneccion.php');
         <?php
 require ('controlador/coneccion.php'); 
 
-$query="SELECT * FROM seguimiento";
+$query="sp_listaseguimiento";
 
         $resultado=sqlsrv_query($conn, $query);
         //se desplegaran los resultados en la tabla

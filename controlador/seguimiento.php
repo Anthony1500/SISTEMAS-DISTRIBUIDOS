@@ -83,7 +83,7 @@ catch (Exception $e){ //usar logs
 
  break;
  case 'selectcombo':
-    $sql="SELECT codproyecto FROM proyecto";
+    $sql="sp_listaproyecto";
     $resultqry = sqlsrv_query($conn,$sql);
     if (!$resultqry) {
     

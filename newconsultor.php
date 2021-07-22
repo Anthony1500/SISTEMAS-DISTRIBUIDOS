@@ -55,7 +55,7 @@ require ('controlador/coneccion.php');
         <?php
 require ('controlador/coneccion.php'); 
 
-$query="SELECT * FROM consultor";
+$query="sp_listacon";
 
         $resultado=sqlsrv_query($conn, $query);
         //se desplegaran los resultados en la tabla

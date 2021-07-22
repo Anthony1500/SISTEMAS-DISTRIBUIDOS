@@ -29,7 +29,7 @@
         <?php
 require ('controlador/coneccion.php'); 
 
-$query="SELECT * FROM facultad";
+$query="sp_listafacultad";
 
         $resultado=sqlsrv_query($conn, $query);
         //se desplegaran los resultados en la tabla
