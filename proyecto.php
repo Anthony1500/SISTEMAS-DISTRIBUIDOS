@@ -28,14 +28,23 @@ require ('controlador/coneccion.php');
            
 <div style="margin-bottom:5px" > 
   <label for="title" id="title">Fecha Ingreso(<span style="color:red;">*</span>)</label> 
-  <input type="date" class="form-control date required  form-control-sm" name="fechaingresoproyecto" id="fechaingresoproyecto" required="true"title="Fecha Ingreso"style="width:15%"onblur="myFunction() >
+  <input type="date" class="form-control date required  form-control-sm" name="fechaingresoproyecto" id="fechaingresoproyecto" required="true"title="Fecha Ingreso"style="width:15%"onblur="myFunction() ">
   
 </div>
 
 
         
-        <div style="margin-bottom:5px">
-                <input name="nivel" labelPosition="top" class="easyui-textbox" required="true" label=" Nivel (*) " style="width:15%" >
+        
+            <div style="margin-bottom:5px">
+                <select id="cc1" label="Nivel (*)" labelPosition="top" style="width:15%" required="true" class="easyui-combobox"required="true" name="nivel">
+                <option  selected="selected" ></option>
+                <option>GRADO</option>
+                <option>PREGRADO</option>
+                <option>POSGRADO</option>
+                <option>MAESTRIA</option>
+                
+                
+            </select>
             </div> 
                       
             <div style="margin-bottom:5px">
@@ -47,10 +56,10 @@ require ('controlador/coneccion.php');
   
 </div>
             <div style="margin-bottom:5px">
-                <input name="year" labelPosition="top" class="easyui-textbox" required="true" label=" Año (*) " style="width:15%" >
+                <input name="year" labelPosition="top" class="easyui-numberbox" required="true" label=" Año (*) " style="width:15%" >
             </div> 
             <div style="margin-bottom:5px">
-                <input name="valor" labelPosition="top" class="easyui-textbox" required="true" label=" Valor (*) " style="width:15%" >
+                <input name="valor" labelPosition="top" class="easyui-numberbox" required="true" label=" Valor (*) " style="width:15%" >
             </div> 
         
             
@@ -135,6 +144,16 @@ $query="sp_listaproyecto";
    
        
        $('#cc').combobox({
+           
+           
+           panelHeight:'150',
+           
+           onSelect: function(rec)
+           {
+            
+           }
+       });
+       $('#cc1').combobox({
            
            
            panelHeight:'150',

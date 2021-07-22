@@ -16,23 +16,23 @@ require ('controlador/coneccion.php');
             
             <div style="margin-bottom:6px" >
             <label for="title" id="title"> Nombres (<span style="color:red;">*</span>)</label> 
-              <input type="text" class="form-control form-control-sm  "  name="nombres" id="nombres" required title=" Nombres"style="width:25%">
+              <input type="text" class="form-control form-control-sm  "  name="nombres" id="nombres" required title=" Nombres"style="width:25%"onkeypress="return soloLetras(event)">
             </div > 
                   
             <div style="margin-bottom:6px" >
             <label for="title" id="title">Apellidos (<span style="color:red;">*</span>)</label> 
-              <input type="text" class="form-control form-control-sm  "  name="apellidos" id="apellidos" required title="Apellidos"style="width:25%"required>
+              <input type="text" class="form-control form-control-sm  "  name="apellidos" id="apellidos" required title="Apellidos"style="width:25%"required onkeypress="return soloLetras(event)">
             </div > 
         
             <div style="margin-bottom:6px" >
             <label for="title" id="title">  Direccion (<span style="color:red;">*</span>)</label> 
-              <input type="text" class="form-control form-control-sm  "  name="direccion" id="direccion" required="true" title=" Nombres"style="width:25%"required>
+              <input type="text" class="form-control form-control-sm  "  name="direccion" id="direccion" required="true" title=" Direccion"style="width:25%"required onkeypress="return soloLetras(event)">
             </div > 
 
             
              <div style="margin-bottom:6px" >
             <label for="title" id="title">  Correo (<span style="color:red;">*</span>)</label> 
-              <input type="text" class="form-control form-control-sm  "  name="correo" id="correo" required="true" title=" Correo"style="width:25%"required>
+              <input type="text" class="form-control form-control-sm  "  name="correo" id="correo" required="true" title=" Correo"style="width:25%"required >
             </div > 
            
             <div style="margin-bottom:6px" >
@@ -113,23 +113,24 @@ $query="sp_listacon";
 ?>
  
     <script type="text/javascript">
-   (function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('#frmpro');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
+   function soloLetras(e) {
+    var key = e.keyCode || e.which,
+      tecla = String.fromCharCode(key).toLowerCase(),
+      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+      especiales = [8, 37, 39, 46],
+      tecla_especial = false;
+
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        tecla_especial = true;
+        break;
+      }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+      return false;
+    }
+  }
         
      function onlyNumberKey(evt) {
           
