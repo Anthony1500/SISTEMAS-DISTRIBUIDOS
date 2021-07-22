@@ -32,10 +32,7 @@
            
 
 
-<script>
-    var $f1= "<?php  echo $_GET["f1"] ?>";
-    var   $f2="<?php echo $_GET["f2"] ?>";                    
-    </script> 
+ 
         <?php
         
 require ('controlador/coneccion.php'); 

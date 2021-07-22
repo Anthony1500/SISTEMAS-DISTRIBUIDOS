@@ -7,16 +7,16 @@
            
 
             <div style="margin-bottom:5px">
-                <input name="codfacultad" labelPosition="top" class="easyui-textbox" required="true" label="Codigo de la Facultad (*)" style="width:50%" >
+                <input name="codfacultad" labelPosition="top" class="easyui-textbox" required="true" label="Codigo de la Facultad (*)" style="width:25%" >
             </div> 
             <div style="margin-bottom:5px">
-                <input name="nombrefacultad" labelPosition="top" class="easyui-textbox" required="true" label="Nombre de la Facultad (*)" style="width:50%" >
+                <input name="nombrefacultad" labelPosition="top" class="easyui-textbox" required="true" label="Nombre de la Facultad (*)" style="width:25%" >
             </div> 
             <div style="margin-bottom:5px">
-                <input name="decano" labelPosition="top" class="easyui-textbox" required="true" label="Decano (*)" style="width:50%" >
+                <input name="decano" labelPosition="top" class="easyui-textbox" required="true" label="Decano (*)" style="width:25%" >
             </div>              
             <div style="margin-bottom:5px">
-                <input  name="lugar" labelPosition="top" class="easyui-textbox" required="true" label="Lugar (*)" style="width:50%" >
+                <input  name="lugar" labelPosition="top" class="easyui-textbox" required="true" label="Lugar (*)" style="width:25%" >
             </div> 
         
         </form>

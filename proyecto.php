@@ -28,7 +28,7 @@ require ('controlador/coneccion.php');
            
 <div style="margin-bottom:5px" > 
   <label for="title" id="title">Fecha Ingreso(<span style="color:red;">*</span>)</label> 
-  <input type="date" class="form-control date required" name="fechaingresoproyecto" id="fechaingresoproyecto" required="true"title="Fecha Ingreso"style="width:15%"onblur="myFunction() >
+  <input type="date" class="form-control date required  form-control-sm" name="fechaingresoproyecto" id="fechaingresoproyecto" required="true"title="Fecha Ingreso"style="width:15%"onblur="myFunction() >
   
 </div>
 
@@ -43,7 +43,7 @@ require ('controlador/coneccion.php');
             </div> 
             <div style="margin-bottom:5px" > 
   <label for="title" id="title">Fecha Resolucion(<span style="color:red;">*</span>)</label> 
-  <input type="date" class="form-control date required" name="fecharesolucion" id="fecharesolucion" required="true"title="Fecha Resolucion"style="width:15%" onblur="myFunction()">
+  <input type="date" class="form-control date required form-control-sm" name="fecharesolucion" id="fecharesolucion" required="true"title="Fecha Resolucion"style="width:15%" onblur="myFunction()">
   
 </div>
             <div style="margin-bottom:5px">

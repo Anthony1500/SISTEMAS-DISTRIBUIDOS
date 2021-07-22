@@ -52,7 +52,7 @@
 	
 <?php 
 
-$serverName = "JOHN";
+$serverName = "ANTHONY\ANTHONY";
 $db="Proyectos";
 
 $connectionInfo = array( "Database"=>$db);
@@ -86,7 +86,7 @@ if( $conn ) {
 
 		  if( $row) {
 			 echo "Conexión establecida.<br/>";
-			 header("location: main.php") ;
+			 header("location: main.php?pag=newlogin") ;
 		}else{
 		 echo '<script language="javascript">alert("El Usuario ingresado no Existe");</script>'; 
 			 die( print_r( sqlsrv_errors(), true));

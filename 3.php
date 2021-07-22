@@ -21,7 +21,7 @@ if( isset($_GET["id"]))
                     valueField:'nombres',
                     textField:'nombres',
                     panelHeight:'auto',
-                    label: 'Nombre consultor (*)',
+                    label: 'Nombre consultor ',
                     labelWidth:'160px'
                     ">               
             </select>
@@ -61,15 +61,21 @@ if( isset($_GET["id"]))
                 <input name="correo" Value="<?php echo $row['correo'] ?>" labelPosition="top" class="easyui-textbox" required="true" label=" Correo (*) " style="width:25%" >
             </div> 
             
-            <div style="margin-bottom:5px">
-                <input name="edad" Value="<?php echo $row['edad'] ?>"  labelPosition="top" class="easyui-numberbox" required="true" label=" Edad (*)"  style="width:15%" >
-            </div>
-            <div style="margin-bottom:5px">
-                <input name="telefono" Value="<?php echo $row['telefono'] ?>"  labelPosition="top" class="easyui-textbox" required="true" label=" Telefono (*) " style="width:25%" >
-            </div> 
-            <div style="margin-bottom:5px">
-                <input name="celular" Value="<?php echo $row['celular'] ?>" labelPosition="top" class="easyui-textbox" required="true" label=" Celular (*) " style="width:25%" >
-            </div> 
+            
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title">Edad (*)</label> 
+              <input type="number" Value="<?php echo $row['edad'] ?>" class="form-control form-control-sm  "  name="edad" id="edad" required title="Inreso Maximo de 2 digitos"style="width:15%"onkeypress="return onlyNumberKey(event)"maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"required>
+            </div >
+           
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title">Telefono (*)</label> 
+              <input type="number" Value="<?php echo $row['telefono'] ?>"class="form-control form-control-sm  "  name="telefono" id="telefono" required title="Inreso Maximo de 10 digitos"style="width:15%"onkeypress="return onlyNumberKey(event)"maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </div >
+          
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title">Celular (*)</label> 
+              <input type="number" Value="<?php echo $row['celular'] ?>" class="form-control form-control-sm  "  name="celular" id="celular" required title="Inreso Maximo de 10 digitos"style="width:15%"onkeypress="return onlyNumberKey(event)"maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </div > 
             <div style="margin-bottom:5px">
                 <input name="titulosegundonivel" Value="<?php echo $row['titulosegundonivel'] ?>" labelPosition="top" class="easyui-textbox" required="true" label=" Titulo segundo nivel (*) " style="width:25%" >
             </div> 

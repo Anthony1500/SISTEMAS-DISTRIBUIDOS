@@ -50,19 +50,22 @@ if( isset($_GET["id"]))
 
 
 
-<div style="margin-bottom:5px">
-                <input name="fecha" id="fecha" labelPosition="top" Value="<?php echo $row['fecha']->format('Y-m-d'); ?>" class="easyui-datebox"   data-options="formatter:myformatter,parser:myparser"  required="true" label="Fecha (*)" style="width:15%" >
-            </div>        
+
+            <div style="margin-bottom:5px" > 
+  <label for="title" id="title">Fecha (<span style="color:red;">*</span>)</label> 
+  <input type="date" class="form-control date required  form-control-sm" name="fecha" Value="<?php echo $row['fecha']->format('Y-m-d'); ?>"id="fecha" required="true"title="Fecha Ingreso"style="width:15%"onblur="myFunction()" >
+  
+</div>       
 
             <div style="margin-bottom:5px">
                 <input name="detalle" labelPosition="top"  Value="<?php echo $row['detalle'] ?>" class="easyui-textbox" required="true" label=" Detalle (*) " style="width:25%" >
             </div> 
         
         <div style="margin-bottom:5px">
-                <input name="porcentajeavance" Value="<?php echo $row['porcentajeavance'] ?>" labelPosition="top" class="easyui-textbox" required="true" label=" Direccion (*) " style="width:25%" >
+                <input name="porcentajeavance" Value="<?php echo $row['porcentajeavance'] ?>" labelPosition="top" class="easyui-numberbox" min='0' max='100'required="true" label=" Porcentaje(*) " style="width:25%" >
             </div> 
             <div style="margin-bottom:5px">
-                <input name="estado" Value="<?php echo $row['estado'] ?>" labelPosition="top" class="easyui-textbox" required="true" label=" Correo (*) " style="width:25%" >
+                <input name="estado" Value="<?php echo $row['estado'] ?>" labelPosition="top" class="easyui-textbox" required="true" label=" Estado (*) " style="width:25%" >
             </div> 
             
         
@@ -102,6 +105,7 @@ if( isset($_GET["id"]))
     <p></p>
     
     <script type="text/javascript">
+
 
 function limpiar(){
         document.getElementById("frmpro").reset();

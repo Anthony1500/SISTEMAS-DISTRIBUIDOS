@@ -21,7 +21,7 @@ if( isset($_GET["id"]))
                     valueField:'codfacultad',
                     textField:'nombrefacultad',
                     panelHeight:'auto',
-                    label: 'Nombre Facultad (*)',
+                    label: 'Nombre Facultad ',
                     labelWidth:'160px'
                     ">   
         

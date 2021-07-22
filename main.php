@@ -35,7 +35,7 @@
 
 
 
-    <div data-options="region:'west',split:true" title="Menu" style="width: 252.583px; height: 737.233px;">
+    <div data-options="region:'west',split:true" title="Menu" style="width: 290.583px; height:837.233px;">
 
 
 
@@ -110,7 +110,7 @@
                         <i class="metismenu-icon pe-7s-display2"></i>
                         Reporte Consultor
                     </a>
-                    <a href="main.php">
+                    <a href="main.php?pag=reportefacultad">
                         <i class="metismenu-icon pe-7s-display2"></i>
                         Reporte Facultad
                     </a>

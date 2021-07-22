@@ -1,4 +1,4 @@
-<table id="dg" title="Reporte Seguimineto por Proyecto" class="easyui-datagrid" style="width:100%;height:auto; margin:10px;">
+<table id="dg" title="Reporte Seguimineto " class="easyui-datagrid" style="width:100%;height:auto; margin:10px;">
            
 
 

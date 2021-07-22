@@ -2,52 +2,70 @@
 require ('controlador/coneccion.php'); 
 ?>
 <div id="p" class="easyui-panel" title="Ingreso de Consultor" style="width:100%;height:100%; ">
-<form id="frmpro" method="post"     style="margin:0;padding:20px 50px">
+<form id="frmpro" method="post" class="needs-validation"  style="margin:0;padding:20px 50px">
            
 
 
               
-            <div style="margin-bottom:5px">
-                <input name="dni" labelPosition="top" class="easyui-textbox" required="true" label="Dni Consultor seguimiento (*) " style="width:15%" >
-            </div> 
-                    
-            <div style="margin-bottom:5px">
-                <input name="nombres" labelPosition="top" class="easyui-textbox" required="true" label=" Nombres (*)" style="width:25%" >
-            </div>
-            <div style="margin-bottom:5px">
-                <input name="apellidos" labelPosition="top" class="easyui-textbox" required="true" label=" Apellidos (*) " style="width:25%" >
-            </div> 
-        
-        <div style="margin-bottom:5px">
-                <input name="direccion" labelPosition="top" class="easyui-textbox" required="true" label=" Direccion (*) " style="width:25%" >
-            </div> 
-            <div style="margin-bottom:5px">
-                <input name="correo" labelPosition="top" class="easyui-textbox" required="true" label=" Correo (*) " style="width:25%" >
-            </div> 
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title">Dni Consultor seguimiento (<span style="color:red;">*</span>)</label> 
+              <input type="number" class="form-control form-control-sm  "  name="dni" id="dni" required title="Inreso Maximo de 10 numeros"style="width:25%"onkeypress="return onlyNumberKey(event)"maxlength="10" onblur="myFunction()"oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"required>
+              
+            </div > 
+         
             
-            <div style="margin-bottom:5px">
-                <input name="edad" labelPosition="top" class="easyui-numberbox" required="true" label=" Edad (*)"  style="width:15%" >
-            </div>
-            <div style="margin-bottom:5px">
-                <input name="telefono" labelPosition="top" class="easyui-textbox" required="true" label=" Telefono (*) " style="width:25%" >
-            </div> 
-            <div style="margin-bottom:5px">
-                <input name="celular" labelPosition="top" class="easyui-textbox" required="true" label=" Celular (*) " style="width:25%" >
-            </div> 
-            <div style="margin-bottom:5px">
-                <input name="titulosegundonivel" labelPosition="top" class="easyui-textbox" required="true" label=" Titulo segundo nivel (*) " style="width:25%" >
-            </div> 
-            <div style="margin-bottom:5px">
-                <input name="titulotercernivel" labelPosition="top" class="easyui-textbox" required="true" label=" Titulo tercer nivel (*) " style="width:25%" >
-            </div> 
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title"> Nombres (<span style="color:red;">*</span>)</label> 
+              <input type="text" class="form-control form-control-sm  "  name="nombres" id="nombres" required title=" Nombres"style="width:25%">
+            </div > 
+                  
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title">Apellidos (<span style="color:red;">*</span>)</label> 
+              <input type="text" class="form-control form-control-sm  "  name="apellidos" id="apellidos" required title="Apellidos"style="width:25%"required>
+            </div > 
+        
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title">  Direccion (<span style="color:red;">*</span>)</label> 
+              <input type="text" class="form-control form-control-sm  "  name="direccion" id="direccion" required="true" title=" Nombres"style="width:25%"required>
+            </div > 
+
+            
+             <div style="margin-bottom:6px" >
+            <label for="title" id="title">  Correo (<span style="color:red;">*</span>)</label> 
+              <input type="text" class="form-control form-control-sm  "  name="correo" id="correo" required="true" title=" Correo"style="width:25%"required>
+            </div > 
+           
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title">Edad (<span style="color:red;">*</span>)</label> 
+              <input type="number" class="form-control form-control-sm  "  name="edad" id="edad" required title="Inreso Maximo de 2 digitos"style="width:15%"onkeypress="return onlyNumberKey(event)"maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"required>
+            </div >
+           
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title">Telefono (<span style="color:red;">*</span>)</label> 
+              <input type="number" class="form-control form-control-sm  "  name="telefono" id="telefono" required title="Inreso Maximo de 10 digitos"style="width:15%"onkeypress="return onlyNumberKey(event)"maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </div >
+          
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title">Celular (<span style="color:red;">*</span>)</label> 
+              <input type="number" class="form-control form-control-sm  "  name="celular" id="celular" required title="Inreso Maximo de 10 digitos"style="width:15%"onkeypress="return onlyNumberKey(event)"maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </div >
+            
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title"> Titulo segundo nivel (<span style="color:red;">*</span>)</label> 
+              <input type="text" class="form-control form-control-sm  "  name="titulosegundonivel" id="titulosegundonivel" required title=" Titulo segundo nivel"style="width:25%">
+            </div > 
+            <div style="margin-bottom:6px" >
+            <label for="title" id="title"> Titulo tercer nivel (<span style="color:red;">*</span>)</label> 
+              <input type="text" class="form-control form-control-sm  "  name="titulotercernivel" id="titulotercernivel" required title=" Titulo tercer nivel"style="width:25%">
+            </div > 
+            
                       
         
             <div  style="margin-bottom:5px">
            
-      </form>
-   
+      
         <div style="text-align:center;padding:5px 0">
-        <a href="javascript:void(0)" id='btnSave' class="easyui-linkbutton c6" iconCls="icon-ok"  onclick="saveUser()" style="width:90px">Guardar</a>
+        <a href="javascript:void(0)" id='btnSave' class="easyui-linkbutton c6" iconCls="icon-ok" type="submit" onclick="saveUser()" style="width:90px">Guardar</a>
         
     </div>   
     </div>
@@ -95,11 +113,39 @@ $query="sp_listacon";
 ?>
  
     <script type="text/javascript">
+   (function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('#frmpro');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+        
+     function onlyNumberKey(evt) {
+          
+          // Only ASCII character in that range allowed
+          var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+          if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+              return false;
+          return true;
+      }
+   function myFunction(){
+     var dni = $('#dni').val();
+     dni.required = true 
        
-       function limpiar(){
-        document.getElementById("frmpro").reset();
-       }
-   
+    
+   }
+     
         function saveUser(){              
            $('#frmpro').form('submit',{
                 url: 'controlador/consultor.php?op=insert',

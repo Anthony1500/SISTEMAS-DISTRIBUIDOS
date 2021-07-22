@@ -12,7 +12,7 @@ require ('controlador/coneccion.php');
             </div> 
             <div style="margin-bottom:5px" > 
   <label for="title" id="title">Fecha (<span style="color:red;">*</span>)</label> 
-  <input type="date" class="form-control date required" name="fecha" id="fecha" required="true"title="Fecha Ingreso"style="width:15%"onblur="myFunction()" >
+  <input type="date" class="form-control date required form-control form-control-sm" name="fecha" id="fecha" required="true"title="Fecha Ingreso"style="width:15%"onblur="myFunction()" >
   
 </div>             
             <div style="margin-bottom:5px">
