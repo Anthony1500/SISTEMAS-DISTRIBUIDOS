@@ -9,7 +9,7 @@ if( isset($_GET["id"]))
   
 }
 ?>
-<div id="p" class="easyui-panel" title="Ingreso de Consultor" style="width:100%;height:100%; ">
+<div id="p" class="easyui-panel" title="Buscar Consultor" style="width:100%;height:100%; ">
 <form id="frm" method="post"     style="margin:0;padding:20px 50px">
            
 

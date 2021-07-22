@@ -52,7 +52,7 @@
 	
 <?php 
 
-$serverName = "ANTHONY\ANTHONY";
+$serverName = "JOHN";
 $db="Proyectos";
 
 $connectionInfo = array( "Database"=>$db);

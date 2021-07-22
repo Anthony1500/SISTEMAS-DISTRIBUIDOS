@@ -37,7 +37,7 @@ if( isset($_GET["id"]))
     </div>
     <p></p>
 
- <div id="p" class="easyui-panel" title="Editar  Proyecto" style="width:100%;height:100%; ">
+ <div id="p" class="easyui-panel" title="Editar  Facultad" style="width:100%;height:100%; ">
 <form id="frmpro" method="post"     style="margin:0;padding:20px 50px">
 
             <div style="margin-bottom:5px">

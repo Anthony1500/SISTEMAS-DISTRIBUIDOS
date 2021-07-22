@@ -9,7 +9,7 @@ if( isset($_GET["id"]))
   
 }
 ?>
-<div id="p" class="easyui-panel" title="Ingreso de Consultor" style="width:100%;height:100%; ">
+<div id="p" class="easyui-panel" title="Buscar Consultor" style="width:100%;height:100%; ">
 <form id="frm" method="post"     style="margin:0;padding:20px 50px">
            
 
@@ -127,7 +127,7 @@ function limpiar(){
                             title: 'exito',
                             msg: '¡se ha agregado con exito a la base!'
                         });
-                      //  window.location.href= 'main.php?pag=newconsultor';
+                       window.location.href= 'main.php?pag=newconsultor';
                 }
             }); 
         }

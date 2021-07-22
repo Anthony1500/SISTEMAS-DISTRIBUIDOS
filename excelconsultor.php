@@ -10,8 +10,7 @@ require ('controlador/coneccion.php');
 $sql = "sp_listacon";
 	$resultado =  sqlsrv_query($conn,$sql);
 $fila = 7; //Establecemos en que fila inciara a imprimir los datos
-$gdImage = imagecreatefrompng('imagenes/logoecuador.png');
-$gdImage1 = imagecreatefrompng('imagenes/uti.png');
+
 	
 	//Objeto de PHPExcel
 	$objPHPExcel  = new PHPExcel();
@@ -23,24 +22,6 @@ $gdImage1 = imagecreatefrompng('imagenes/uti.png');
 	$objPHPExcel->setActiveSheetIndex(0);
 	$objPHPExcel->getActiveSheet()->setTitle("Consultor");
 	
-	$objDrawing = new PHPExcel_Worksheet_MemoryDrawing();
-	$objDrawing->setName('Logotipo');
-	$objDrawing->setDescription('Logotipo');
-	$objDrawing->setImageResource($gdImage);
-	$objDrawing->setRenderingFunction(PHPExcel_Worksheet_MemoryDrawing::RENDERING_PNG);
-	$objDrawing->setMimeType(PHPExcel_Worksheet_MemoryDrawing::MIMETYPE_DEFAULT);
-	$objDrawing->setHeight(100);
-	$objDrawing->setCoordinates('B1');
-	$objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
-	$objDrawing = new PHPExcel_Worksheet_MemoryDrawing();
-	$objDrawing->setName('Logotipo');
-	$objDrawing->setDescription('Logotipo');
-	$objDrawing->setImageResource($gdImage1);
-	$objDrawing->setRenderingFunction(PHPExcel_Worksheet_MemoryDrawing::RENDERING_PNG);
-	$objDrawing->setMimeType(PHPExcel_Worksheet_MemoryDrawing::MIMETYPE_DEFAULT);
-	$objDrawing->setHeight(100);
-	$objDrawing->setCoordinates('K1');
-	$objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 	$estiloTituloReporte = array(
 		'font' => array(
 		'name'      => 'Arial',

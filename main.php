@@ -76,10 +76,7 @@
                 </li>
                 <li class="app-sidebar__heading">&nbsp;&nbsp;Editar</li>
                 <li>
-                    <a href="main.php?pag=newlist">
-                        <i class="metismenu-icon pe-7s-display2"></i>
-                        Lista
-                    </a>
+                   
                     <a href="main.php?pag=editcarrera">
                         <i class="metismenu-icon pe-7s-display2"></i>
                         Editar Carrera

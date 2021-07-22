@@ -12,7 +12,7 @@ if( isset($_GET["id"]))
 ?>
 
 
-<div id="p" class="easyui-panel" title="Ingreso de Consultor" style="width:100%;height:100%; ">
+<div id="p" class="easyui-panel" title="Buscar Proyecto" style="width:100%;height:100%; ">
 <form id="frm" method="post"     style="margin:0;padding:20px 50px">
            
 
@@ -42,7 +42,7 @@ if( isset($_GET["id"]))
     </div>   
    
 
-    <div id="p" class="easyui-panel" title="Ingreso Proyecto" style="width:100%;height:100%; ">
+    <div id="p" class="easyui-panel" title="Editar Proyecto" style="width:100%;height:100%; ">
 <form id="frmpro" method="post"     style="margin:0;padding:20px 50px">
            
 
@@ -114,7 +114,7 @@ if( isset($_GET["id"]))
    
         <div style="text-align:center;padding:5px 0">
         <a href="javascript:void(0)" id='btnSave' class="easyui-linkbutton c6" iconCls="icon-ok"  onclick="saveUser()" style="width:90px">Guardar</a>
-        <a  href='main.php?pag=proyecto' class="easyui-linkbutton" onclick="limpiar()" iconCls="icon-remove" style="width:90px">Limpiar</a>
+      
        
     </div>   
     </div>
